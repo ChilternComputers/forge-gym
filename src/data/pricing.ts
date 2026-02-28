@@ -1,0 +1,57 @@
+import type { PricingTier } from "@/types";
+
+export const pricingTiers: PricingTier[] = [
+  {
+    id: "ignite",
+    name: "IGNITE",
+    price: 49,
+    period: "per month",
+    description: "Everything you need to get started and build consistency.",
+    features: [
+      "Unlimited gym floor access",
+      "2 group classes per week",
+      "Locker & shower facilities",
+      "FORGE app access",
+      "Introductory fitness assessment",
+    ],
+    highlighted: false,
+    cta: "START FREE TRIAL",
+  },
+  {
+    id: "forge",
+    name: "FORGE",
+    price: 79,
+    period: "per month",
+    description: "Our most popular plan. Full access, zero limits.",
+    features: [
+      "Unlimited gym floor access",
+      "Unlimited group classes",
+      "1 PT session per month",
+      "Reformer classes included",
+      "Recovery zone access",
+      "Priority class booking",
+      "Nutrition guidance session",
+    ],
+    highlighted: true,
+    cta: "START FREE TRIAL",
+  },
+  {
+    id: "elite",
+    name: "ELITE",
+    price: 129,
+    period: "per month",
+    description: "The ultimate experience. Personal attention, premium perks.",
+    features: [
+      "Everything in FORGE",
+      "4 PT sessions per month",
+      "Bespoke training programme",
+      "Monthly body composition scan",
+      "Guest passes (2 per month)",
+      "Premium recovery treatments",
+      "VIP events & workshops",
+      "Dedicated coach",
+    ],
+    highlighted: false,
+    cta: "START FREE TRIAL",
+  },
+];
