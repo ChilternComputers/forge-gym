@@ -23,15 +23,30 @@ export function Testimonials() {
   const testimonial = testimonials[current];
 
   return (
-    <section className="section-padding bg-brand-surface">
+    <section className="section-padding relative overflow-hidden">
+      {/* Background video — boxer silhouette */}
+      <div className="absolute inset-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="https://assets.mixkit.co/videos/23929/23929-720.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div className="absolute inset-0 bg-brand-black/80" />
+
+      <div className="relative z-10">
       <SectionHeading overline="Testimonials" title="What Our Members Say" />
 
-      <div className="max-w-3xl mx-auto text-center">
+      <div style={{ maxWidth: "48rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
         {/* Decorative quote */}
-        <Quote size={48} className="text-brand-gold/20 mx-auto mb-8" />
+        <Quote size={48} className="text-brand-gold/20" style={{ marginLeft: "auto", marginRight: "auto", marginBottom: "2rem" }} />
 
         {/* Testimonial content */}
-        <div className="min-h-[200px] flex items-center justify-center">
+        <div className="flex items-center justify-center" style={{ minHeight: "200px" }}>
           <AnimatePresence mode="wait">
             <motion.div
               key={testimonial.id}
@@ -40,14 +55,14 @@ export function Testimonials() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
             >
-              <blockquote className="text-xl md:text-2xl text-brand-white/90 leading-relaxed font-light italic mb-8">
+              <blockquote className="text-xl md:text-2xl text-brand-white/90 font-light italic" style={{ lineHeight: "1.8", marginBottom: "2rem" }}>
                 &ldquo;{testimonial.quote}&rdquo;
               </blockquote>
               <div>
                 <p className="font-heading text-lg uppercase tracking-wider text-brand-white">
                   {testimonial.name}
                 </p>
-                <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand-gold mt-1">
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand-gold" style={{ marginTop: "0.375rem" }}>
                   {testimonial.membership}
                 </p>
               </div>
@@ -56,7 +71,7 @@ export function Testimonials() {
         </div>
 
         {/* Dots */}
-        <div className="flex justify-center gap-3 mt-10">
+        <div className="flex justify-center" style={{ gap: "0.75rem", marginTop: "2.5rem" }}>
           {testimonials.map((_, i) => (
             <button
               key={i}
@@ -71,6 +86,7 @@ export function Testimonials() {
             />
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

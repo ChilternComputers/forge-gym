@@ -27,7 +27,7 @@ export function VideoSection() {
           poster="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1920&q=80"
           className="w-full h-full object-cover"
         >
-          <source src="/video/training.mp4" type="video/mp4" />
+          <source src="https://assets.mixkit.co/videos/45874/45874-720.mp4" type="video/mp4" />
         </video>
       </motion.div>
 
