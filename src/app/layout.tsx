@@ -97,6 +97,10 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${oswald.variable} ${jetbrainsMono.variable}`}
     >
+      <head>
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="preload" as="image" href="/gym-hero-poster.webp" type="image/webp" />
+      </head>
       <body>
         <SmoothScroll>
           <script
