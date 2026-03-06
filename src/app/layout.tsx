@@ -6,6 +6,8 @@ import { Footer } from "@/components/layout/Footer";
 import { ChatWidget } from "@/components/ui/ChatWidget";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
+import { ServiceWorkerRegistration } from "@/components/ui/ServiceWorkerRegistration";
+import { InstallPrompt } from "@/components/ui/InstallPrompt";
 import { organizationSchema } from "@/lib/schemas";
 
 const inter = Inter({
@@ -49,6 +51,11 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: "/favicon.svg",
+    apple: "/icons/icon-192x192.png",
+  },
+  other: {
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
   },
   manifest: "/site.webmanifest",
   openGraph: {
@@ -110,6 +117,8 @@ export default function RootLayout({
           <Footer />
           <ChatWidget />
           <CookieConsent />
+          <InstallPrompt />
+          <ServiceWorkerRegistration />
         </SmoothScroll>
       </body>
     </html>

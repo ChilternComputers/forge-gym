@@ -51,7 +51,7 @@ export function NewsletterSignup({ variant = "section" }: NewsletterSignupProps)
                 placeholder="Your email"
                 aria-label="Email address for newsletter"
                 className="flex-1 bg-brand-surface border border-brand-muted/20 rounded-full text-brand-white text-sm focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold transition-colors duration-200"
-                style={{ paddingLeft: "1rem", paddingRight: "1rem", paddingTop: "0.5rem", paddingBottom: "0.5rem", minWidth: 0 }}
+                style={{ paddingLeft: "1rem", paddingRight: "1rem", paddingTop: "0.5rem", paddingBottom: "0.5rem", minWidth: "11rem" }}
               />
               <button
                 type="submit"

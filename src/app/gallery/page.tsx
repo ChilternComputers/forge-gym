@@ -15,18 +15,18 @@ const galleryCategories = ["All", "Gym Floor", "Classes", "Trainers", "Facilitie
 type GalleryCategory = (typeof galleryCategories)[number];
 
 const images = [
-  { src: "https://images.unsplash.com/photo-1546817372-628669db4f56?w=1200&q=80", alt: "Free weights and benches", category: "Gym Floor" },
-  { src: "https://images.unsplash.com/photo-1603287681836-b174ce5074c2?w=1200&q=80", alt: "Gym floor under dramatic lighting", category: "Gym Floor" },
-  { src: "https://images.unsplash.com/photo-1556817411-31ae72fa3ea0?w=1200&q=80", alt: "Strength training area", category: "Gym Floor" },
-  { src: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=1200&q=80", alt: "Plank and core work", category: "Classes" },
-  { src: "https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=1200&q=80", alt: "Coach Marcus Cole", category: "Trainers" },
-  { src: "https://images.unsplash.com/photo-1594381898411-846e7d193883?w=1200&q=80", alt: "Coach Jade Rivera", category: "Trainers" },
-  { src: "https://images.unsplash.com/photo-1518459031867-a89b944bffe4?w=1200&q=80", alt: "Recovery and locker facilities", category: "Facilities" },
-  { src: "https://images.unsplash.com/photo-1593476087123-36d1de271f08?w=1200&q=80", alt: "Battle ropes conditioning", category: "Classes" },
-  { src: "https://images.unsplash.com/photo-1598971639058-fab3c3109a00?w=1200&q=80", alt: "Medicine ball training", category: "Classes" },
-  { src: "https://images.unsplash.com/photo-1594882645126-14020914d58d?w=1200&q=80", alt: "Cardio and machine zone", category: "Facilities" },
-  { src: "https://images.unsplash.com/photo-1548690312-e3b507d8c110?w=1200&q=80", alt: "Coach Sophie Chen", category: "Trainers" },
-  { src: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=1200&q=80", alt: "Coach Kai Thompson", category: "Trainers" },
+  { src: "https://images.unsplash.com/photo-1546817372-628669db4f56?w=1200&q=75&fm=webp", alt: "Free weights and benches", category: "Gym Floor" },
+  { src: "https://images.unsplash.com/photo-1603287681836-b174ce5074c2?w=1200&q=75&fm=webp", alt: "Gym floor under dramatic lighting", category: "Gym Floor" },
+  { src: "https://images.unsplash.com/photo-1556817411-31ae72fa3ea0?w=1200&q=75&fm=webp", alt: "Strength training area", category: "Gym Floor" },
+  { src: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=1200&q=75&fm=webp", alt: "Plank and core work", category: "Classes" },
+  { src: "https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=1200&q=75&fm=webp", alt: "Coach Marcus Cole", category: "Trainers" },
+  { src: "https://images.unsplash.com/photo-1594381898411-846e7d193883?w=1200&q=75&fm=webp", alt: "Coach Jade Rivera", category: "Trainers" },
+  { src: "https://images.unsplash.com/photo-1518459031867-a89b944bffe4?w=1200&q=75&fm=webp", alt: "Recovery and locker facilities", category: "Facilities" },
+  { src: "https://images.unsplash.com/photo-1593476087123-36d1de271f08?w=1200&q=75&fm=webp", alt: "Battle ropes conditioning", category: "Classes" },
+  { src: "https://images.unsplash.com/photo-1598971639058-fab3c3109a00?w=1200&q=75&fm=webp", alt: "Medicine ball training", category: "Classes" },
+  { src: "https://images.unsplash.com/photo-1594882645126-14020914d58d?w=1200&q=75&fm=webp", alt: "Cardio and machine zone", category: "Facilities" },
+  { src: "https://images.unsplash.com/photo-1548690312-e3b507d8c110?w=1200&q=75&fm=webp", alt: "Coach Sophie Chen", category: "Trainers" },
+  { src: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=1200&q=75&fm=webp", alt: "Coach Kai Thompson", category: "Trainers" },
 ];
 
 export default function GalleryPage() {

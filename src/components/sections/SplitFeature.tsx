@@ -37,7 +37,7 @@ export function SplitFeature() {
           className="relative aspect-[4/5] rounded-lg overflow-hidden"
         >
           <Image
-            src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=900&q=80"
+            src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=900&q=80&fm=webp"
             alt="FORGE GYM interior with dramatic lighting"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"

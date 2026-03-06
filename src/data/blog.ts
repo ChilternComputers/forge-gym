@@ -10,7 +10,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-02-20",
     readTime: "5 min read",
     image:
-      "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=800&q=80",
+      "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=800&q=80&fm=webp",
     author: "Marcus Cole",
     content: [
       "If you only have time for five exercises, make them compound lifts. These multi-joint movements recruit the most muscle mass, elevate your heart rate, and build the kind of functional strength that transfers to real life.",
@@ -30,7 +30,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-02-12",
     readTime: "4 min read",
     image:
-      "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80",
+      "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80&fm=webp",
     author: "Jade Rivera",
     content: [
       "What you eat before training matters — but probably not as much as the internet wants you to believe. The goal is simple: fuel performance without feeling sluggish.",
@@ -50,7 +50,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-02-05",
     readTime: "6 min read",
     image:
-      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80",
+      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80&fm=webp",
     author: "Sophie Chen",
     content: [
       "Training is the stimulus. Recovery is where the adaptation happens. If you're not recovering properly, you're not getting stronger — you're just getting tired.",
@@ -70,7 +70,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-01-28",
     readTime: "5 min read",
     image:
-      "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=800&q=80",
+      "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=800&q=80&fm=webp",
     author: "Kai Thompson",
     content: [
       "Every personal best starts with a decision. Before your body lifts the weight, your mind has to believe it's possible. Mental toughness isn't something you're born with — it's trained, just like any other skill.",
@@ -90,7 +90,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-01-20",
     readTime: "5 min read",
     image:
-      "https://images.unsplash.com/photo-1616803689943-5601631c7fec?w=800&q=80",
+      "https://images.unsplash.com/photo-1616803689943-5601631c7fec?w=800&q=80&fm=webp",
     author: "Jade Rivera",
     content: [
       "The HIIT vs. steady-state debate has been raging for decades. Personal trainers on social media will tell you one is dramatically superior. The research tells a more nuanced story.",
@@ -110,7 +110,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-01-14",
     readTime: "4 min read",
     image:
-      "https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=800&q=80",
+      "https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=800&q=80&fm=webp",
     author: "Marcus Cole",
     content: [
       "Protein is the most discussed, most debated, and most misunderstood macronutrient. Let's clear up the biggest myths that are probably holding you back.",

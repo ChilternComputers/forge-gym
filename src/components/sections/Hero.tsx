@@ -37,7 +37,7 @@ export function Hero() {
           loop
           playsInline
           preload="metadata"
-          poster="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80"
+          poster="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=60&fm=webp"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ transform: "scale(1.1)" }}
           aria-hidden="true"
@@ -110,7 +110,7 @@ export function Hero() {
             loop
             playsInline
             preload="metadata"
-            poster="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80"
+            poster="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=60&fm=webp"
             className="w-full h-full object-cover"
             aria-hidden="true"
           >

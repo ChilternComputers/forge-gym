@@ -121,3 +121,8 @@ export interface Position {
   description: string;
   requirements: string[];
 }
+
+export interface Booking {
+  slotId: string;
+  bookedAt: string;
+}

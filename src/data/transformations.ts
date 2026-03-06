@@ -17,7 +17,7 @@ export const transformations: Transformation[] = [
       { label: "5K Run", before: "38 min", after: "24 min" },
     ],
     image:
-      "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80",
+      "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80&fm=webp",
   },
   {
     id: "priya-nair",
@@ -35,7 +35,7 @@ export const transformations: Transformation[] = [
       { label: "Classes/Week", before: "1", after: "5" },
     ],
     image:
-      "https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&q=80",
+      "https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&q=80&fm=webp",
   },
   {
     id: "danny-oconnor",
@@ -53,7 +53,7 @@ export const transformations: Transformation[] = [
       { label: "Resting HR", before: "88 bpm", after: "62 bpm" },
     ],
     image:
-      "https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=600&q=80",
+      "https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=600&q=80&fm=webp",
   },
   {
     id: "sarah-kimura",
@@ -71,6 +71,6 @@ export const transformations: Transformation[] = [
       { label: "Confidence", before: "Low", after: "Through the Roof" },
     ],
     image:
-      "https://images.unsplash.com/photo-1548690312-e3b507d8c110?w=600&q=80",
+      "https://images.unsplash.com/photo-1548690312-e3b507d8c110?w=600&q=80&fm=webp",
   },
 ];

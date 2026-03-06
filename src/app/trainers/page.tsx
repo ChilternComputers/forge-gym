@@ -24,7 +24,7 @@ export default function TrainersPage() {
       {/* Hero banner */}
       <section className="relative h-[50vh] min-h-[350px] flex items-end overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&q=80"
+          src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&q=60&fm=webp"
           alt="FORGE GYM trainers"
           fill
           priority

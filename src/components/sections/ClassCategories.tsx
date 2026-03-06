@@ -8,25 +8,25 @@ const categories = [
   {
     name: "Strength",
     subtitle: "Build Power",
-    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80&fm=webp",
     href: "/classes?category=strength",
   },
   {
     name: "HIIT",
     subtitle: "Push Limits",
-    image: "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=800&q=80&fm=webp",
     href: "/classes?category=hiit",
   },
   {
     name: "Reformer",
     subtitle: "Sculpt & Strengthen",
-    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80&fm=webp",
     href: "/classes?category=reformer",
   },
   {
     name: "Boxing",
     subtitle: "Fight Ready",
-    image: "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=800&q=80&fm=webp",
     href: "/classes?category=boxing",
   },
 ];
