@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface AnimateOnScrollProps {
@@ -41,6 +41,12 @@ export function AnimateOnScroll({
   delay = 0,
   duration = 0.6,
 }: AnimateOnScrollProps) {
+  const prefersReduced = useReducedMotion();
+
+  if (prefersReduced) {
+    return <div className={cn(className)}>{children}</div>;
+  }
+
   return (
     <motion.div
       initial="hidden"

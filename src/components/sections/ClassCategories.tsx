@@ -59,7 +59,8 @@ export function ClassCategories() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-[1400px] mx-auto"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+        style={{ gap: "1.5rem", maxWidth: "1400px", marginLeft: "auto", marginRight: "auto" }}
       >
         {categories.map((cat) => (
           <motion.div key={cat.name} variants={itemVariants}>

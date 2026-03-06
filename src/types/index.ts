@@ -26,7 +26,6 @@ export interface Testimonial {
   quote: string;
   name: string;
   membership: string;
-  image?: string;
 }
 
 export interface PricingTier {
@@ -53,4 +52,72 @@ export interface TimetableSlot {
 export interface NavLink {
   label: string;
   href: string;
+}
+
+export interface BlogPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: "Training Tips" | "Nutrition" | "Recovery" | "Mindset";
+  date: string;
+  readTime: string;
+  image: string;
+  author: string;
+  content: string[];
+}
+
+export interface Transformation {
+  id: string;
+  name: string;
+  age: number;
+  membership: string;
+  duration: string;
+  quote: string;
+  story: string;
+  stats: { label: string; before: string; after: string }[];
+  image: string;
+}
+
+export interface PTPackage {
+  id: string;
+  name: string;
+  price: number;
+  sessions: number;
+  description: string;
+  features: string[];
+  highlighted: boolean;
+}
+
+export interface Review {
+  id: string;
+  name: string;
+  rating: number;
+  text: string;
+  date: string;
+}
+
+export interface InstaPost {
+  id: string;
+  image: string;
+  alt: string;
+  likes: number;
+  caption: string;
+}
+
+export interface CorporatePackage {
+  id: string;
+  name: string;
+  teamSize: string;
+  description: string;
+  features: string[];
+  highlighted: boolean;
+}
+
+export interface Position {
+  id: string;
+  title: string;
+  type: string;
+  department: string;
+  description: string;
+  requirements: string[];
 }

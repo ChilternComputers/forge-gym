@@ -3,7 +3,9 @@ import { Inter, Oswald, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Ticker } from "@/components/layout/Ticker";
+import { ChatWidget } from "@/components/ui/ChatWidget";
+import { CookieConsent } from "@/components/ui/CookieConsent";
+import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import { organizationSchema } from "@/lib/schemas";
 
 const inter = Inter({
@@ -25,12 +27,16 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://forgegym.co.uk"),
+  alternates: {
+    canonical: "./",
+  },
   title: {
     default: "FORGE GYM | Built to Push. Built to Last.",
     template: "%s | FORGE GYM",
   },
   description:
-    "Premium gym and fitness studio offering strength training, HIIT, reformer pilates, and boxing. World-class trainers, elite facilities. Start your free trial today.",
+    "Premium gym and fitness studio offering strength training, HIIT, reformer pilates, and boxing. World-class trainers, elite facilities. Start your free trial.",
   keywords: [
     "gym",
     "fitness studio",
@@ -41,6 +47,10 @@ export const metadata: Metadata = {
     "boxing",
     "premium gym",
   ],
+  icons: {
+    icon: "/favicon.svg",
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     title: "FORGE GYM | Built to Push. Built to Last.",
     description:
@@ -48,12 +58,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GB",
     siteName: "FORGE GYM",
+    images: [
+      {
+        url: "https://forgegym.co.uk/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "FORGE GYM — Built to Push. Built to Last.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "FORGE GYM | Built to Push. Built to Last.",
     description:
       "Premium gym and fitness studio. Start your free trial today.",
+    images: ["https://forgegym.co.uk/images/og-image.png"],
   },
   robots: {
     index: true,
@@ -72,16 +91,26 @@ export default function RootLayout({
       className={`${inter.variable} ${oswald.variable} ${jetbrainsMono.variable}`}
     >
       <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
-          }}
-        />
-        <Ticker />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <SmoothScroll>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(organizationSchema),
+            }}
+          />
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-brand-gold focus:text-brand-black focus:font-mono focus:text-sm focus:uppercase focus:tracking-[0.1em] focus:rounded-lg focus:outline-none"
+            style={{ padding: '0.75rem 1.5rem', minHeight: '44px', display: 'inline-flex', alignItems: 'center' }}
+          >
+            Skip to main content
+          </a>
+          <Navbar />
+          <main id="main-content">{children}</main>
+          <Footer />
+          <ChatWidget />
+          <CookieConsent />
+        </SmoothScroll>
       </body>
     </html>
   );

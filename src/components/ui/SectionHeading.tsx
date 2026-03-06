@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface SectionHeadingProps {
@@ -18,28 +18,41 @@ export function SectionHeading({
   align = "center",
   className,
 }: SectionHeadingProps) {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={cn(
-        "mb-16",
-        align === "center" && "text-center",
-        className
-      )}
+      transition={{ duration: prefersReducedMotion ? 0 : 0.6, ease: "easeOut" }}
+      className={cn(className)}
+      style={{
+        marginBottom: "4rem",
+        textAlign: align === "center" ? "center" : "left",
+      }}
     >
       {overline && (
-        <span className="font-mono text-xs uppercase tracking-[0.2em] text-brand-gold mb-4 block">
+        <span
+          className="font-mono text-sm uppercase tracking-[0.2em] text-brand-gold block"
+          style={{ marginBottom: "1rem" }}
+        >
           {overline}
         </span>
       )}
-      <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight text-brand-white leading-none">
+      <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight text-brand-white" style={{ lineHeight: 1.2 }}>
         {title}
       </h2>
       {description && (
-        <p className="mt-6 max-w-2xl text-brand-muted text-lg leading-relaxed mx-auto">
+        <p
+          className="text-brand-muted text-lg leading-relaxed"
+          style={{
+            marginTop: "1.5rem",
+            maxWidth: "42rem",
+            marginLeft: align === "center" ? "auto" : undefined,
+            marginRight: align === "center" ? "auto" : undefined,
+          }}
+        >
           {description}
         </p>
       )}

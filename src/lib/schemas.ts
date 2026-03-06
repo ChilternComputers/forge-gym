@@ -37,7 +37,13 @@ export const organizationSchema = {
     },
   ],
   priceRange: "££",
-  image: "https://forgegym.co.uk/images/og-image.jpg",
+  image: "https://forgegym.co.uk/images/og-image.png",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "127",
+    bestRating: "5",
+  },
   sameAs: [
     "https://instagram.com/forgegym",
     "https://facebook.com/forgegym",
@@ -45,20 +51,48 @@ export const organizationSchema = {
   ],
 };
 
-export function createBreadcrumbSchema(
-  items: { name: string; url: string }[]
-) {
+export function createArticleSchema(article: {
+  title: string;
+  description: string;
+  date: string;
+  author: string;
+  image: string;
+  url: string;
+}) {
   return {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: items.map((item, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: item.name,
-      item: item.url,
-    })),
+    "@type": "Article",
+    headline: article.title,
+    description: article.description,
+    datePublished: article.date,
+    dateModified: article.date,
+    author: {
+      "@type": "Person",
+      name: article.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "FORGE GYM",
+      url: "https://forgegym.co.uk",
+    },
+    image: article.image,
+    mainEntityOfPage: article.url.endsWith("/") ? article.url : `${article.url}/`,
   };
 }
+
+export const videoSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: "FORGE GYM — Built to Push. Built to Last.",
+  description:
+    "Premium gym and fitness studio offering strength training, HIIT, reformer pilates, and boxing.",
+  thumbnailUrl:
+    "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80",
+  uploadDate: "2025-01-01",
+  contentUrl: "https://assets.mixkit.co/videos/52094/52094-720.mp4",
+  embedUrl: "https://assets.mixkit.co/videos/52094/52094-720.mp4",
+  duration: "PT30S",
+};
 
 export const faqSchema = {
   "@context": "https://schema.org",

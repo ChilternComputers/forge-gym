@@ -27,7 +27,7 @@ const features = [
 export function SplitFeature() {
   return (
     <section className="section-padding bg-brand-dark">
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center" style={{ maxWidth: "1400px", marginLeft: "auto", marginRight: "auto", gap: "5rem" }}>
         {/* Image */}
         <motion.div
           initial={{ opacity: 0, x: -60 }}
@@ -53,27 +53,27 @@ export function SplitFeature() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
         >
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-brand-gold mb-4 block">
+          <span className="font-mono text-sm uppercase tracking-[0.2em] text-brand-gold block" style={{ marginBottom: "1.25rem" }}>
             Why Forge
           </span>
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase leading-[0.95] tracking-tight mb-8">
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase leading-[1.2] tracking-tight" style={{ marginBottom: "2rem" }}>
             Not Just a Gym.
             <br />
             <span className="text-gradient">A Forge.</span>
           </h2>
-          <p className="text-brand-muted text-lg leading-relaxed mb-10 max-w-lg">
+          <p className="text-brand-muted text-lg leading-relaxed" style={{ marginBottom: "2.5rem", maxWidth: "32rem" }}>
             We built FORGE for people who are done with overcrowded floors,
             cookie-cutter programmes, and trainers who don&apos;t remember your
             name. This is training with intent.
           </p>
 
-          <ul className="space-y-6 mb-10">
+          <ul style={{ display: "flex", flexDirection: "column", gap: "1.5rem", marginBottom: "2.5rem" }}>
             {features.map((feature) => (
-              <li key={feature.text} className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center mt-0.5">
+              <li key={feature.text} className="flex items-start" style={{ gap: "1rem" }}>
+                <div className="flex-shrink-0 rounded-full bg-brand-gold/10 flex items-center justify-center" style={{ width: "2.75rem", height: "2.75rem" }}>
                   <feature.icon size={18} className="text-brand-gold" />
                 </div>
-                <span className="text-brand-white/80 text-sm leading-relaxed">
+                <span className="text-brand-white/90 text-sm leading-relaxed" style={{ paddingTop: "0.625rem" }}>
                   {feature.text}
                 </span>
               </li>

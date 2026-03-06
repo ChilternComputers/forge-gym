@@ -6,6 +6,7 @@ import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { MobileMenu } from "./MobileMenu";
+import { tickerMessages } from "@/data/ticker";
 import type { NavLink } from "@/types";
 
 const navLinks: NavLink[] = [
@@ -18,11 +19,20 @@ const navLinks: NavLink[] = [
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
+    let lastY = window.scrollY;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const y = window.scrollY;
+      setScrolled(y > 50);
+      if (y > lastY && y > 100) {
+        setHidden(true);
+      } else if (y < lastY) {
+        setHidden(false);
+      }
+      lastY = y;
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -42,33 +52,56 @@ export function Navbar() {
 
   return (
     <>
+      <div
+        className="fixed top-0 left-0 right-0 z-40 transition-transform duration-300"
+        style={{ transform: hidden ? "translateY(-100%)" : "translateY(0)" }}
+      >
+      {/* Ticker */}
+      <div className="bg-brand-gold overflow-hidden whitespace-nowrap flex items-center" style={{ height: "2.5rem" }} aria-hidden="true">
+        <div className="animate-ticker inline-flex" style={{ willChange: "transform" }}>
+          {[...Array(3)].flatMap((_, set) =>
+            tickerMessages.map((msg, i) => (
+              <span
+                key={`${set}-${i}`}
+                className="font-mono text-xs uppercase tracking-[0.15em] text-brand-black font-semibold inline-flex items-center"
+                style={{ paddingLeft: "3rem", paddingRight: "3rem" }}
+              >
+                {msg}
+                <span className="text-brand-black/40" style={{ paddingLeft: "3rem", paddingRight: "3rem" }}>★</span>
+              </span>
+            ))
+          )}
+        </div>
+      </div>
+      {/* Header */}
       <header
         className={cn(
-          "fixed top-9 left-0 right-0 z-40 transition-all duration-300",
+          "transition-colors duration-300",
           scrolled
             ? "bg-brand-black/95 backdrop-blur-md border-b border-white/5"
-            : "bg-transparent"
+            : "bg-brand-black/60 backdrop-blur-sm"
         )}
       >
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <nav className="flex items-center justify-between h-16 md:h-20">
+        <div style={{ paddingLeft: "clamp(1.5rem, 8vw, 12rem)", paddingRight: "clamp(1.5rem, 8vw, 12rem)" }}>
+          <nav aria-label="Main navigation" className="hidden lg:grid lg:grid-cols-[auto_1fr_auto] items-center h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link href="/" className="flex items-center group" style={{ gap: "0.5rem" }}>
               <span className="font-heading text-2xl md:text-3xl uppercase tracking-wider text-brand-white group-hover:text-brand-gold transition-colors duration-300">
                 FORGE
               </span>
-              <span className="font-mono text-[0.5rem] uppercase tracking-[0.3em] text-brand-gold mt-1">
+              <span className="font-mono text-xs uppercase tracking-[0.3em] text-brand-gold" style={{ marginTop: "0.25rem" }}>
                 GYM
               </span>
             </Link>
 
-            {/* Desktop nav */}
-            <div className="hidden lg:flex items-center gap-10">
+            {/* Desktop nav — centred */}
+            <div className="flex items-center justify-center" style={{ gap: "2.5rem" }}>
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="relative font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-brand-white/80 hover:text-brand-white transition-colors duration-300 py-2 group"
+                  className="relative font-mono text-sm uppercase tracking-[0.15em] text-brand-white hover:text-brand-gold transition-colors duration-300 group"
+                  style={{ paddingTop: "0.5rem", paddingBottom: "0.5rem" }}
                 >
                   {link.label}
                   <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-brand-gold transition-all duration-300 group-hover:w-full" />
@@ -76,8 +109,8 @@ export function Navbar() {
               ))}
             </div>
 
-            {/* Desktop CTAs */}
-            <div className="hidden lg:flex items-center gap-4">
+            {/* Desktop CTAs — right */}
+            <div className="flex items-center justify-end" style={{ gap: "1rem" }}>
               <Button href="/contact" variant="ghost" size="default">
                 BOOK
               </Button>
@@ -85,18 +118,32 @@ export function Navbar() {
                 JOIN
               </Button>
             </div>
+          </nav>
 
-            {/* Mobile hamburger */}
+          {/* Mobile nav */}
+          <nav aria-label="Mobile navigation" className="flex lg:hidden items-center justify-between h-16" style={{ paddingLeft: "0.5rem", paddingRight: "0.5rem" }}>
+            <Link href="/" className="flex items-center group" style={{ gap: "0.5rem" }}>
+              <span className="font-heading text-2xl uppercase tracking-wider text-brand-white group-hover:text-brand-gold transition-colors duration-300">
+                FORGE
+              </span>
+              <span className="font-mono text-xs uppercase tracking-[0.3em] text-brand-gold" style={{ marginTop: "0.25rem" }}>
+                GYM
+              </span>
+            </Link>
             <button
               onClick={() => setMobileOpen(true)}
-              className="lg:hidden text-brand-white hover:text-brand-gold transition-colors p-2"
+              className="text-brand-white hover:text-brand-gold transition-colors focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded-lg"
+              style={{ padding: "0.625rem", minWidth: "44px", minHeight: "44px", display: "inline-flex", alignItems: "center", justifyContent: "center" }}
               aria-label="Open menu"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
             >
               <Menu size={24} />
             </button>
           </nav>
         </div>
       </header>
+      </div>
 
       <MobileMenu
         isOpen={mobileOpen}

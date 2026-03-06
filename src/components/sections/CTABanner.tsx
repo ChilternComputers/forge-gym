@@ -13,8 +13,10 @@ export function CTABanner() {
           muted
           loop
           playsInline
-          poster="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=60"
+          preload="none"
+          poster="https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?w=1920&q=60"
           className="w-full h-full object-cover"
+          aria-hidden="true"
         >
           <source src="https://assets.mixkit.co/videos/40250/40250-720.mp4" type="video/mp4" />
         </video>
@@ -35,7 +37,7 @@ export function CTABanner() {
         <span className="font-mono text-sm uppercase tracking-[0.3em] text-brand-gold block" style={{ marginBottom: "1.25rem" }}>
           Ready?
         </span>
-        <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl uppercase leading-[0.95] tracking-tight" style={{ marginBottom: "2rem" }}>
+        <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl uppercase leading-[1.2] tracking-tight" style={{ marginBottom: "2rem" }}>
           Ready to Forge
           <br />
           <span className="text-gradient">Your Path?</span>

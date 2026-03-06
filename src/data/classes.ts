@@ -10,7 +10,7 @@ export const classes: GymClass[] = [
     shortDescription: "Build raw power and lean muscle with progressive overload.",
     duration: "55 min",
     intensity: "High",
-    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&q=80",
     trainer: "Marcus Cole",
   },
   {

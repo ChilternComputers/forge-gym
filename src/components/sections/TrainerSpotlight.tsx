@@ -6,18 +6,10 @@ import { Instagram } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { trainers } from "@/data/trainers";
+import { createStaggerContainer, createSlideUpVariants } from "@/lib/animations";
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.1 },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
-};
+const containerVariants = createStaggerContainer(0.1);
+const cardVariants = createSlideUpVariants(30);
 
 export function TrainerSpotlight() {
   return (
@@ -33,7 +25,8 @@ export function TrainerSpotlight() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1400px] mx-auto"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+        style={{ gap: "2rem", maxWidth: "1400px", marginLeft: "auto", marginRight: "auto" }}
       >
         {trainers.map((trainer) => (
           <motion.div
@@ -42,7 +35,7 @@ export function TrainerSpotlight() {
             className="group relative"
           >
             {/* Image */}
-            <div className="relative aspect-[3/4] rounded-lg overflow-hidden mb-4">
+            <div className="relative aspect-[3/4] rounded-lg overflow-hidden" style={{ marginBottom: "1.25rem" }}>
               <Image
                 src={trainer.image}
                 alt={trainer.name}
@@ -53,7 +46,7 @@ export function TrainerSpotlight() {
               <div className="absolute inset-0 bg-gradient-to-t from-brand-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               {/* Hover overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+              <div className="absolute bottom-0 left-0 right-0 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300" style={{ padding: "1.25rem" }}>
                 <p className="text-brand-white/90 text-sm leading-relaxed line-clamp-3">
                   {trainer.bio}
                 </p>
@@ -62,7 +55,8 @@ export function TrainerSpotlight() {
                     href={`https://instagram.com/${trainer.instagram}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-brand-gold text-xs font-mono mt-3 hover:text-brand-gold-light transition-colors"
+                    className="inline-flex items-center text-brand-gold text-xs font-mono hover:text-brand-gold-light transition-colors focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
+                    style={{ gap: "0.5rem", marginTop: "0.75rem" }}
                   >
                     <Instagram size={14} />@{trainer.instagram}
                   </a>
@@ -71,17 +65,17 @@ export function TrainerSpotlight() {
             </div>
 
             {/* Info */}
-            <h3 className="font-heading text-xl uppercase tracking-wide">
+            <h3 className="font-heading text-xl uppercase tracking-wide" style={{ marginBottom: "0.25rem" }}>
               {trainer.name}
             </h3>
-            <span className="font-mono text-[0.6875rem] uppercase tracking-[0.15em] text-brand-gold">
+            <span className="font-mono text-xs uppercase tracking-[0.15em] text-brand-gold">
               {trainer.specialty}
             </span>
           </motion.div>
         ))}
       </motion.div>
 
-      <div className="text-center mt-12">
+      <div style={{ textAlign: "center", marginTop: "3rem" }}>
         <Button href="/trainers" variant="ghost">
           VIEW ALL COACHES
         </Button>

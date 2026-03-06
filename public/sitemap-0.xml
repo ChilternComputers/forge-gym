@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://forgegym.co.uk/about</loc><lastmod>2026-02-28T14:07:18.283Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://forgegym.co.uk/classes</loc><lastmod>2026-02-28T14:07:18.284Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://forgegym.co.uk/contact</loc><lastmod>2026-02-28T14:07:18.284Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://forgegym.co.uk/free-trial</loc><lastmod>2026-02-28T14:07:18.284Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://forgegym.co.uk/gallery</loc><lastmod>2026-02-28T14:07:18.284Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://forgegym.co.uk/membership</loc><lastmod>2026-02-28T14:07:18.284Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://forgegym.co.uk</loc><lastmod>2026-02-28T14:07:18.284Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://forgegym.co.uk/privacy</loc><lastmod>2026-02-28T14:07:18.284Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://forgegym.co.uk/timetable</loc><lastmod>2026-02-28T14:07:18.284Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://forgegym.co.uk/trainers</loc><lastmod>2026-02-28T14:07:18.284Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/about</loc><lastmod>2026-03-05T19:26:05.126Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/accessibility</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/blog/5-compound-lifts-you-should-master</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/blog/hiit-vs-steady-state-which-burns-more-fat</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/blog/mental-toughness-training-beyond-the-physical</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/blog/pre-workout-nutrition-what-to-eat-and-when</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/blog/protein-myths-debunked</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/blog/the-science-of-muscle-recovery</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/blog</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/careers</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/classes</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/contact</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/corporate</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/free-trial</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/gallery</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/membership</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/personal-training</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/privacy</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/terms</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/timetable</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/trainers</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://forgegym.co.uk/transformations</loc><lastmod>2026-03-05T19:26:05.127Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>

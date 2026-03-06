@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -43,16 +41,16 @@ export function Card({
         className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 p-6">
+      <div className="absolute bottom-0 left-0 right-0" style={{ padding: "1.5rem" }}>
         {subtitle && (
-          <span className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-brand-gold mb-2 block">
+          <span className="font-mono text-xs uppercase tracking-[0.15em] text-brand-gold block" style={{ marginBottom: "0.5rem" }}>
             {subtitle}
           </span>
         )}
         <h3 className="font-heading text-2xl md:text-3xl uppercase text-brand-white leading-tight">
           {title}
         </h3>
-        <div className="mt-3 h-0.5 w-0 bg-brand-gold transition-all duration-300 group-hover:w-12" />
+        <div className="h-0.5 w-0 bg-brand-gold transition-all duration-300 group-hover:w-12" style={{ marginTop: "0.75rem" }} />
       </div>
     </div>
   );

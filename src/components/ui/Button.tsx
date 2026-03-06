@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -23,7 +21,7 @@ export function Button({
   type = "button",
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-mono uppercase tracking-widest text-xs font-medium transition-all duration-300 ease-in-out cursor-pointer";
+    "inline-flex items-center justify-center font-mono uppercase tracking-wider text-sm font-medium transition-all duration-300 ease-in-out cursor-pointer focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2 focus-visible:ring-offset-brand-black focus-visible:outline-none";
 
   const variants = {
     primary:
@@ -33,23 +31,28 @@ export function Button({
     text: "bg-transparent text-brand-gold hover:text-brand-gold-light underline-offset-4 hover:underline",
   };
 
+  const sizeStyles = {
+    default: { paddingLeft: "2.5rem", paddingRight: "2.5rem", paddingTop: "0.875rem", paddingBottom: "0.875rem", minHeight: "44px" },
+    large: { paddingLeft: "3rem", paddingRight: "3rem", paddingTop: "1.125rem", paddingBottom: "1.125rem" },
+  };
+
   const sizes = {
-    default: "px-8 py-3.5 rounded-full min-h-[48px]",
-    large: "px-10 py-4.5 rounded-full min-h-[56px] text-sm",
+    default: "rounded-full min-w-[120px]",
+    large: "rounded-full min-w-[180px] text-sm",
   };
 
   const classes = cn(baseStyles, variants[variant], sizes[size], className);
 
   if (href) {
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} style={sizeStyles[size]}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button type={type} onClick={onClick} className={classes}>
+    <button type={type} onClick={onClick} className={classes} style={sizeStyles[size]}>
       {children}
     </button>
   );

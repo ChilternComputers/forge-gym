@@ -2,12 +2,20 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { Target, Heart, Flame, Users } from "lucide-react";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { CountUp } from "@/components/ui/CountUp";
 import { Button } from "@/components/ui/Button";
 
+const pageTitle = "About Us";
+const pageDescription =
+  "The story behind FORGE GYM. Built by fitness obsessives who believe premium coaching and world-class facilities should be the standard, not the exception.";
+
 export const metadata: Metadata = {
-  title: "About Us",
-  description:
-    "The story behind FORGE GYM. Built by fitness obsessives who believe premium training should be the standard, not the exception.",
+  title: pageTitle,
+  description: pageDescription,
+  alternates: { canonical: "/about/" },
+  openGraph: { title: pageTitle, description: pageDescription, images: [{ url: "https://forgegym.co.uk/images/og-image.png", width: 1200, height: 630, alt: "FORGE GYM — Built to Push. Built to Last." }] },
+  twitter: { title: pageTitle, description: pageDescription, card: "summary_large_image", images: ["https://forgegym.co.uk/images/og-image.png"] },
 };
 
 const values = [
@@ -38,10 +46,10 @@ const values = [
 ];
 
 const stats = [
-  { number: "500+", label: "Active Members" },
-  { number: "4", label: "World-Class Coaches" },
-  { number: "98%", label: "Class Return Rate" },
-  { number: "6", label: "Class Types" },
+  { value: 500, suffix: "+", label: "Active Members" },
+  { value: 4, suffix: "", label: "World-Class Coaches" },
+  { value: 98, suffix: "%", label: "Class Return Rate" },
+  { value: 6, suffix: "", label: "Class Types" },
 ];
 
 export default function AboutPage() {
@@ -50,7 +58,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[350px] flex items-end overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=1920&q=80"
+          src="https://images.unsplash.com/photo-1577221084712-45b0445d2b00?w=1920&q=80"
           alt="FORGE GYM interior"
           fill
           priority
@@ -58,8 +66,9 @@ export default function AboutPage() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/50 to-transparent" />
-        <div className="relative z-10 section-padding pb-12">
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-brand-gold mb-3 block">
+        <div className="relative z-10 section-padding" style={{ paddingBottom: "3rem" }}>
+          <Breadcrumbs items={[{ label: "About" }]} />
+          <span className="font-mono text-sm uppercase tracking-[0.2em] text-brand-gold block" style={{ marginBottom: "0.75rem" }}>
             Our Story
           </span>
           <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl uppercase tracking-tight">
@@ -70,11 +79,11 @@ export default function AboutPage() {
 
       {/* Story */}
       <section className="section-padding bg-brand-black">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center" style={{ maxWidth: "1400px", marginLeft: "auto", marginRight: "auto", gap: "3rem" }}>
           <AnimateOnScroll variant="slideLeft">
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=80"
+                src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=900&q=80"
                 alt="Inside FORGE GYM"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -84,15 +93,15 @@ export default function AboutPage() {
           </AnimateOnScroll>
 
           <AnimateOnScroll variant="slideRight">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-brand-gold mb-4 block">
+            <span className="font-mono text-sm uppercase tracking-[0.2em] text-brand-gold block" style={{ marginBottom: "1rem" }}>
               The Beginning
             </span>
-            <h2 className="font-heading text-4xl md:text-5xl uppercase tracking-tight mb-6 leading-[0.95]">
+            <h2 className="font-heading text-4xl md:text-5xl uppercase tracking-tight leading-[0.95]" style={{ marginBottom: "1.5rem" }}>
               We Built the Gym
               <br />
               <span className="text-gradient">We Always Wanted</span>
             </h2>
-            <div className="space-y-4 text-brand-white/80 text-lg leading-relaxed">
+            <div className="flex flex-col text-brand-white/90 text-lg leading-relaxed" style={{ gap: "1rem" }}>
               <p>
                 FORGE started with a simple frustration: every gym we joined was
                 either too corporate, too crowded, or too careless about
@@ -117,13 +126,17 @@ export default function AboutPage() {
 
       {/* Stats */}
       <section className="section-padding bg-brand-dark">
-        <div className="max-w-[1100px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4" style={{ maxWidth: "1100px", marginLeft: "auto", marginRight: "auto", gap: "2rem" }}>
           {stats.map((stat, i) => (
             <AnimateOnScroll key={stat.label} delay={i * 0.1}>
-              <div className="text-center">
-                <span className="font-heading text-5xl md:text-6xl text-gradient block mb-2">
-                  {stat.number}
-                </span>
+              <div style={{ textAlign: "center" }}>
+                <CountUp
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  duration={2000}
+                  className="font-heading text-5xl md:text-6xl text-gradient block"
+                  style={{ marginBottom: "0.5rem" }}
+                />
                 <span className="font-mono text-xs uppercase tracking-[0.15em] text-brand-muted">
                   {stat.label}
                 </span>
@@ -135,10 +148,10 @@ export default function AboutPage() {
 
       {/* Values */}
       <section className="section-padding bg-brand-black">
-        <div className="max-w-[1400px] mx-auto">
+        <div style={{ maxWidth: "1400px", marginLeft: "auto", marginRight: "auto" }}>
           <AnimateOnScroll>
-            <div className="text-center mb-16">
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-brand-gold mb-4 block">
+            <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+              <span className="font-mono text-sm uppercase tracking-[0.2em] text-brand-gold block" style={{ marginBottom: "1rem" }}>
                 What We Stand For
               </span>
               <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight">
@@ -147,15 +160,15 @@ export default function AboutPage() {
             </div>
           </AnimateOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "2rem" }}>
             {values.map((value, i) => (
               <AnimateOnScroll key={value.title} delay={i * 0.1}>
-                <div className="bg-brand-surface rounded-xl p-8 border border-white/5 flex gap-6">
+                <div className="bg-brand-surface rounded-xl border border-white/5 flex" style={{ padding: "2rem", gap: "1.5rem" }}>
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-gold/10 flex items-center justify-center">
                     <value.icon size={22} className="text-brand-gold" />
                   </div>
                   <div>
-                    <h3 className="font-heading text-xl uppercase tracking-wide mb-2">
+                    <h3 className="font-heading text-xl uppercase tracking-wide" style={{ marginBottom: "0.5rem" }}>
                       {value.title}
                     </h3>
                     <p className="text-brand-muted text-sm leading-relaxed">
@@ -170,12 +183,15 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-brand-dark text-center">
+      <section className="section-padding bg-brand-dark" style={{ textAlign: "center" }}>
         <AnimateOnScroll>
-          <h2 className="font-heading text-4xl md:text-5xl uppercase tracking-tight mb-6">
+          <span className="font-mono text-sm uppercase tracking-[0.2em] text-brand-gold block" style={{ marginBottom: "1rem" }}>
+            Your Move
+          </span>
+          <h2 className="font-heading text-4xl md:text-5xl uppercase tracking-tight" style={{ marginBottom: "1.5rem" }}>
             Come See for Yourself
           </h2>
-          <p className="text-brand-muted text-lg mb-8 max-w-lg mx-auto">
+          <p className="text-brand-muted text-lg" style={{ marginBottom: "2rem", maxWidth: "32rem", marginLeft: "auto", marginRight: "auto" }}>
             The best way to understand FORGE is to experience it. Book your free
             trial and see what training with intent feels like.
           </p>

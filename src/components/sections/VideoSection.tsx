@@ -24,10 +24,13 @@ export function VideoSection() {
           muted
           loop
           playsInline
-          poster="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1920&q=80"
+          preload="none"
+          poster="/gym-hero-poster.webp"
           className="w-full h-full object-cover"
+          aria-hidden="true"
         >
-          <source src="https://assets.mixkit.co/videos/45874/45874-720.mp4" type="video/mp4" />
+          <source src="/gym-hero.webm" type="video/webm" />
+          <source src="/gym-hero.mp4" type="video/mp4" />
         </video>
       </motion.div>
 
@@ -40,9 +43,10 @@ export function VideoSection() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 text-center px-6 max-w-4xl"
+        className="relative z-10 text-center max-w-4xl"
+        style={{ paddingLeft: "1.5rem", paddingRight: "1.5rem" }}
       >
-        <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl uppercase leading-[0.95] tracking-tight">
+        <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl uppercase leading-[1.2] tracking-tight">
           Where Limits
           <br />
           <span className="text-gradient">Go to Die</span>

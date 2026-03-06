@@ -6,18 +6,10 @@ import { cn } from "@/lib/utils";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { pricingTiers } from "@/data/pricing";
+import { createStaggerContainer, createSlideUpVariants } from "@/lib/animations";
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.12 },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
-};
+const containerVariants = createStaggerContainer(0.12);
+const cardVariants = createSlideUpVariants(40);
 
 export function MembershipPreview() {
   return (
@@ -33,7 +25,8 @@ export function MembershipPreview() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1100px] mx-auto"
+        className="grid grid-cols-1 md:grid-cols-3"
+        style={{ gap: "2rem", maxWidth: "1100px", marginLeft: "auto", marginRight: "auto" }}
       >
         {pricingTiers.map((tier) => (
           <motion.div
@@ -42,43 +35,45 @@ export function MembershipPreview() {
             whileHover={{ y: -8 }}
             transition={{ duration: 0.3 }}
             className={cn(
-              "relative rounded-xl p-8 flex flex-col",
+              "relative rounded-xl flex flex-col",
               tier.highlighted
                 ? "bg-brand-surface border-2 border-brand-gold"
                 : "bg-brand-surface border border-white/5"
             )}
+            style={{ padding: "2.5rem" }}
           >
             {tier.highlighted && (
-              <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-gold text-brand-black font-mono text-[0.6rem] uppercase tracking-[0.2em] px-4 py-1.5 rounded-full">
+              <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-gold text-brand-black font-mono text-xs uppercase tracking-[0.2em] rounded-full" style={{ paddingLeft: "1rem", paddingRight: "1rem", paddingTop: "0.375rem", paddingBottom: "0.375rem" }}>
                 Most Popular
               </span>
             )}
 
-            <h3 className="font-heading text-2xl uppercase tracking-wider mb-2">
+            <h3 className="font-heading text-2xl uppercase tracking-wider" style={{ marginBottom: "0.75rem" }}>
               {tier.name}
             </h3>
-            <p className="text-brand-muted text-sm mb-6">{tier.description}</p>
+            <p className="text-brand-muted text-sm" style={{ marginBottom: "1.5rem" }}>{tier.description}</p>
 
-            <div className="mb-8">
+            <div style={{ marginBottom: "2rem" }}>
               <span className="font-heading text-5xl text-brand-white">
                 &pound;{tier.price}
               </span>
-              <span className="text-brand-muted text-sm ml-2">
+              <span className="text-brand-muted text-sm" style={{ marginLeft: "0.5rem" }}>
                 /{tier.period}
               </span>
             </div>
 
-            <ul className="space-y-3 mb-8 flex-1">
+            <ul className="flex-1" style={{ display: "flex", flexDirection: "column", gap: "0.875rem", marginBottom: "2rem" }}>
               {tier.features.map((feature) => (
-                <li key={feature} className="flex items-start gap-3">
+                <li key={feature} className="flex items-start" style={{ gap: "0.75rem" }}>
                   <Check
                     size={16}
                     className={cn(
-                      "flex-shrink-0 mt-0.5",
+                      "flex-shrink-0",
                       tier.highlighted ? "text-brand-gold" : "text-brand-muted"
                     )}
+                    style={{ marginTop: "0.125rem" }}
                   />
-                  <span className="text-brand-white/80 text-sm">{feature}</span>
+                  <span className="text-brand-white/90 text-sm">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -94,7 +89,7 @@ export function MembershipPreview() {
         ))}
       </motion.div>
 
-      <div className="text-center mt-10">
+      <div style={{ textAlign: "center", marginTop: "2.5rem" }}>
         <Button href="/membership" variant="text">
           View full comparison &rarr;
         </Button>
