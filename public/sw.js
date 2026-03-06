@@ -1,5 +1,5 @@
-// FORGE GYM Service Worker v1
-const CACHE_NAME = "forge-v1";
+// FORGE GYM Service Worker v2
+const CACHE_NAME = "forge-v2";
 
 const APP_SHELL = [
   "/",
@@ -50,11 +50,9 @@ self.addEventListener("fetch", (event) => {
   // Only handle GET requests
   if (request.method !== "GET") return;
 
-  // Skip cross-origin video/media (large files, not worth caching)
+  // Skip all cross-origin requests — let the browser handle them directly
   const url = new URL(request.url);
-  if (url.origin !== self.location.origin && (
-    request.destination === "video" || request.destination === "audio"
-  )) return;
+  if (url.origin !== self.location.origin) return;
 
   // HTML navigations: network-first
   if (request.mode === "navigate" || request.headers.get("accept")?.includes("text/html")) {
