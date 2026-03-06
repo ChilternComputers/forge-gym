@@ -22,9 +22,9 @@ export function NewsletterSignup({ variant = "section" }: NewsletterSignupProps)
   if (variant === "inline") {
     return (
       <div style={{ marginTop: "1.5rem" }}>
-        <h4 className="font-mono text-xs uppercase tracking-[0.2em] text-brand-gold" style={{ marginBottom: "0.75rem" }}>
+        <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand-gold" style={{ marginBottom: "0.75rem" }}>
           Newsletter
-        </h4>
+        </p>
         <AnimatePresence mode="wait">
           {submitted ? (
             <motion.p

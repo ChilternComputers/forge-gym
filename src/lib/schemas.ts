@@ -87,7 +87,7 @@ export const videoSchema = {
   description:
     "Premium gym and fitness studio offering strength training, HIIT, reformer pilates, and boxing.",
   thumbnailUrl:
-    "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=60&fm=webp",
+    "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=45&fm=webp",
   uploadDate: "2025-01-01",
   contentUrl: "https://assets.mixkit.co/videos/52094/52094-720.mp4",
   embedUrl: "https://assets.mixkit.co/videos/52094/52094-720.mp4",

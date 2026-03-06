@@ -34,7 +34,7 @@ export function Testimonials() {
           loop
           playsInline
           preload="none"
-          poster="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?w=1920&q=60&fm=webp"
+          poster="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?w=1920&q=45&fm=webp"
           className="w-full h-full object-cover"
           aria-hidden="true"
         >

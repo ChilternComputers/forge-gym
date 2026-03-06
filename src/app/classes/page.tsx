@@ -66,7 +66,7 @@ export default function ClassesPage() {
       {/* Hero banner */}
       <section className="relative h-[50vh] min-h-[350px] flex items-end overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1596357395217-80de13130e92?w=1920&q=60&fm=webp"
+          src="https://images.unsplash.com/photo-1596357395217-80de13130e92?w=1920&q=45&fm=webp"
           alt="FORGE GYM classes"
           fill
           priority
