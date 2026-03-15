@@ -37,8 +37,9 @@ export function VideoSection() {
           </video>
         ) : (
           <img
-            src="/gym-hero-poster.webp"
+            src="https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?w=800&q=30&fm=webp"
             alt=""
+            loading="lazy"
             className="w-full h-full object-cover"
             aria-hidden="true"
           />

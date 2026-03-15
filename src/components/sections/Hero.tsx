@@ -46,7 +46,7 @@ export function Hero() {
     </video>
   ) : (
     <img
-      src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=640&q=30&fm=webp"
+      src="/gym-hero-mobile.webp"
       alt=""
       fetchPriority="high"
       className="w-full h-full object-cover"
@@ -66,8 +66,8 @@ export function Hero() {
     </>
   );
 
-  // Reduced motion — render the original static hero
-  if (prefersReducedMotion) {
+  // Static hero for mobile and reduced-motion users (no JS dependency for LCP)
+  if (prefersReducedMotion || !isDesktop) {
     return (
       <section className="relative h-svh min-h-[600px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0" style={{ transform: "scale(1.1)" }}>
@@ -138,9 +138,6 @@ export function Hero() {
         <div className="relative z-10" style={{ textAlign: "center", paddingLeft: "1.5rem", paddingRight: "1.5rem", maxWidth: "56rem", marginLeft: "auto", marginRight: "auto" }}>
           {/* Overline badge */}
           <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
             style={{ y: overlineY, opacity: overlineOpacity, marginBottom: "2rem", padding: "0.625rem 2rem", backgroundColor: "rgba(0,0,0,0.5)", backdropFilter: "blur(8px)" }}
             className="font-mono text-sm uppercase tracking-[0.3em] text-brand-gold inline-block rounded-full border border-brand-gold/40"
           >
@@ -150,9 +147,6 @@ export function Hero() {
           {/* Main headline — split lines for parallax */}
           <motion.h1
             className="font-heading text-6xl sm:text-7xl md:text-8xl lg:text-9xl uppercase leading-[1.1] tracking-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
             style={{ opacity: headingOpacity, marginBottom: "2.5rem" }}
           >
             <motion.span className="block" style={{ y: line1Y }}>
@@ -165,9 +159,6 @@ export function Hero() {
 
           {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
             className="text-brand-white/90 text-lg md:text-xl font-light"
             style={{ y: subtitleY, opacity: subtitleOpacity, marginBottom: "3rem", lineHeight: "1.8", marginLeft: "auto", marginRight: "auto", maxWidth: "36rem" }}
           >
@@ -178,9 +169,6 @@ export function Hero() {
 
           {/* CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
             className="flex flex-col sm:flex-row"
             style={{ y: subtitleY, opacity: subtitleOpacity, gap: "1.5rem", justifyContent: "center", alignItems: "center" }}
           >
