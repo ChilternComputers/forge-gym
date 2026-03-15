@@ -56,7 +56,7 @@ export function Card({
   );
 
   if (href) {
-    return <Link href={href}>{content}</Link>;
+    return <Link href={href} className="focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded-lg">{content}</Link>;
   }
 
   return content;

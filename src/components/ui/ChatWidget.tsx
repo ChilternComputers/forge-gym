@@ -74,7 +74,7 @@ export function ChatWidget() {
                 style={{ padding: "0.75rem", gap: "0.75rem" }}
               >
                 <div className="w-8 h-8 rounded-full bg-brand-gold flex items-center justify-center">
-                  <Phone size={16} className="text-brand-black" />
+                  <Phone size={16} className="text-brand-black" aria-hidden="true" />
                 </div>
                 <span className="font-mono text-xs uppercase tracking-wider text-brand-white">
                   Call Us
@@ -86,7 +86,7 @@ export function ChatWidget() {
                 style={{ padding: "0.75rem", gap: "0.75rem" }}
               >
                 <div className="w-8 h-8 rounded-full bg-brand-white flex items-center justify-center">
-                  <Mail size={16} className="text-brand-black" />
+                  <Mail size={16} className="text-brand-black" aria-hidden="true" />
                 </div>
                 <span className="font-mono text-xs uppercase tracking-wider text-brand-white">
                   Email
@@ -112,7 +112,7 @@ export function ChatWidget() {
               exit={{ rotate: 90, opacity: 0 }}
               transition={{ duration: 0.15 }}
             >
-              <X size={24} />
+              <X size={24} aria-hidden="true" />
             </motion.div>
           ) : (
             <motion.div
@@ -122,7 +122,7 @@ export function ChatWidget() {
               exit={{ rotate: -90, opacity: 0 }}
               transition={{ duration: 0.15 }}
             >
-              <MessageCircle size={24} />
+              <MessageCircle size={24} aria-hidden="true" />
             </motion.div>
           )}
         </AnimatePresence>

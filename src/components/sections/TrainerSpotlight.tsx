@@ -58,7 +58,7 @@ export function TrainerSpotlight() {
                     className="inline-flex items-center text-brand-gold text-xs font-mono hover:text-brand-gold-light transition-colors focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
                     style={{ gap: "0.5rem", marginTop: "0.75rem" }}
                   >
-                    <Instagram size={14} />@{trainer.instagram}
+                    <Instagram size={14} aria-hidden="true" />@{trainer.instagram}
                   </a>
                 )}
               </div>

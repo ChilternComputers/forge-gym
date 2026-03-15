@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { Button } from "@/components/ui/Button";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { SkeletonCard } from "@/components/ui/Skeleton";
 import { blogPosts } from "@/data/blog";
 
 const categories = ["All", "Training Tips", "Nutrition", "Recovery", "Mindset"] as const;
@@ -17,9 +16,6 @@ type Category = (typeof categories)[number];
 
 export default function BlogPage() {
   const [filter, setFilter] = useState<Category>("All");
-  const [hydrated, setHydrated] = useState(false);
-
-  useEffect(() => setHydrated(true), []);
 
   const filtered =
     filter === "All"
@@ -70,13 +66,6 @@ export default function BlogPage() {
       {/* Post grid */}
       <section className="responsive-px bg-brand-black" style={{ paddingBottom: "6rem" }}>
         <div style={{ maxWidth: "1400px", marginLeft: "auto", marginRight: "auto" }}>
-          {!hydrated ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: "1.5rem" }}>
-              {Array.from({ length: 6 }).map((_, i) => (
-                <SkeletonCard key={i} />
-              ))}
-            </div>
-          ) : (
           <AnimatePresence mode="wait">
             <motion.div
               key={filter}
@@ -114,10 +103,10 @@ export default function BlogPage() {
                         </p>
                         <div className="flex items-center justify-between text-brand-muted">
                           <span className="flex items-center text-xs font-mono" style={{ gap: "0.375rem" }}>
-                            <Clock size={14} /> {post.readTime}
+                            <Clock size={14} aria-hidden="true" /> {post.readTime}
                           </span>
                           <span className="flex items-center text-xs font-mono text-brand-gold" style={{ gap: "0.25rem" }}>
-                            Read <ArrowRight size={14} />
+                            Read <ArrowRight size={14} aria-hidden="true" />
                           </span>
                         </div>
                       </div>
@@ -127,7 +116,6 @@ export default function BlogPage() {
               ))}
             </motion.div>
           </AnimatePresence>
-          )}
         </div>
       </section>
       {/* CTA */}

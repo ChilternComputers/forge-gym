@@ -87,7 +87,7 @@ export function Hero() {
         </div>
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-          <ChevronDown size={28} className="text-brand-gold/60" />
+          <ChevronDown size={28} className="text-brand-gold/60" aria-hidden="true" />
         </div>
       </section>
     );
@@ -114,7 +114,8 @@ export function Hero() {
             className="w-full h-full object-cover"
             aria-hidden="true"
           >
-            <source src="https://assets.mixkit.co/videos/52094/52094-720.mp4" type="video/mp4" />
+            <source src="/gym-hero.webm" type="video/webm" />
+            <source src="/gym-hero.mp4" type="video/mp4" />
           </video>
         </motion.div>
 
@@ -192,7 +193,7 @@ export function Hero() {
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" as const }}
           >
-            <ChevronDown size={28} className="text-brand-gold/60" />
+            <ChevronDown size={28} className="text-brand-gold/60" aria-hidden="true" />
           </motion.div>
         </motion.div>
       </motion.section>

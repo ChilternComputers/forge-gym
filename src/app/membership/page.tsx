@@ -97,6 +97,7 @@ export default function MembershipPage() {
                     <li key={feature} className="flex items-start" style={{ gap: "0.75rem" }}>
                       <Check
                         size={16}
+                        aria-hidden="true"
                         className={cn(
                           "flex-shrink-0",
                           tier.highlighted
@@ -142,7 +143,7 @@ export default function MembershipPage() {
               className="inline-flex items-center text-brand-gold hover:text-brand-gold-light font-mono text-sm uppercase tracking-[0.1em] transition-colors duration-300 flex-shrink-0 focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
               style={{ gap: "0.5rem" }}
             >
-              See Transformations <ArrowRight size={16} />
+              See Transformations <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>
         </AnimateOnScroll>
@@ -174,6 +175,7 @@ export default function MembershipPage() {
                     </span>
                     <ChevronDown
                       size={18}
+                      aria-hidden="true"
                       className={cn(
                         "text-brand-gold flex-shrink-0 transition-transform duration-300",
                         openFaq === i && "rotate-180"

@@ -6,6 +6,7 @@ import { Quote } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { testimonials } from "@/data/testimonials";
 import { cn } from "@/lib/utils";
+import { useIsDesktop } from "@/lib/useIsDesktop";
 
 export function Testimonials() {
   const [current, setCurrent] = useState(0);
@@ -15,6 +16,20 @@ export function Testimonials() {
     setCurrent((prev) => (prev + 1) % testimonials.length);
   }, []);
 
+  const prev = useCallback(() => {
+    setCurrent((p) => (p - 1 + testimonials.length) % testimonials.length);
+  }, []);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") next();
+      else if (e.key === "ArrowLeft") prev();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [next, prev]);
+
   // Auto-rotate every 6 seconds (unless paused)
   useEffect(() => {
     if (paused) return;
@@ -23,23 +38,35 @@ export function Testimonials() {
   }, [next, paused]);
 
   const testimonial = testimonials[current];
+  const isDesktop = useIsDesktop();
 
   return (
     <section className="section-padding relative overflow-hidden">
-      {/* Background video — boxer silhouette */}
+      {/* Background — video on desktop, static poster on mobile */}
       <div className="absolute inset-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="none"
-          poster="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?w=1920&q=45&fm=webp"
-          className="w-full h-full object-cover"
-          aria-hidden="true"
-        >
-          <source src="https://assets.mixkit.co/videos/23929/23929-720.mp4" type="video/mp4" />
-        </video>
+        {isDesktop ? (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="none"
+            poster="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?w=1920&q=45&fm=webp"
+            className="w-full h-full object-cover"
+            aria-hidden="true"
+          >
+            <source src="/gym-hero.webm" type="video/webm" />
+            <source src="/gym-hero.mp4" type="video/mp4" />
+          </video>
+        ) : (
+          <img
+            src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?w=1200&q=45&fm=webp"
+            alt=""
+            loading="lazy"
+            className="w-full h-full object-cover"
+            aria-hidden="true"
+          />
+        )}
       </div>
       <div className="absolute inset-0 bg-brand-black/80" />
 
@@ -48,7 +75,7 @@ export function Testimonials() {
 
       <div style={{ maxWidth: "48rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
         {/* Decorative quote */}
-        <Quote size={48} className="text-brand-gold/20" style={{ marginLeft: "auto", marginRight: "auto", marginBottom: "2rem" }} />
+        <Quote size={48} className="text-brand-gold/20" style={{ marginLeft: "auto", marginRight: "auto", marginBottom: "2rem" }} aria-hidden="true" />
 
         {/* Testimonial content */}
         <div className="flex items-center justify-center" style={{ minHeight: "200px" }} aria-live="polite" aria-atomic="true">

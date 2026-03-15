@@ -98,7 +98,7 @@ export function AppBanner() {
             {features.map((f) => (
               <div key={f.text} className="flex items-center" style={{ gap: "1rem" }}>
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center">
-                  <f.icon size={18} className="text-brand-gold" />
+                  <f.icon size={18} className="text-brand-gold" aria-hidden="true" />
                 </div>
                 <span className="text-brand-white/90 text-sm">{f.text}</span>
               </div>

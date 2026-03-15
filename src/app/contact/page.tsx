@@ -81,7 +81,7 @@ export default function ContactPage() {
             {submitted ? (
               <div className="bg-brand-surface rounded-xl border border-white/5 flex flex-col items-center justify-center" style={{ padding: "3rem", textAlign: "center", minHeight: "400px" }}>
                 <div className="w-16 h-16 rounded-full bg-brand-gold/10 flex items-center justify-center" style={{ marginBottom: "1.5rem" }}>
-                  <CheckCircle size={32} className="text-brand-gold" />
+                  <CheckCircle size={32} className="text-brand-gold" aria-hidden="true" />
                 </div>
                 <h2 className="font-heading text-3xl uppercase tracking-wide" style={{ marginBottom: "1rem" }}>
                   Message Sent
@@ -144,7 +144,7 @@ export default function ContactPage() {
                       <option value="corporate">Corporate</option>
                       <option value="other">Other</option>
                     </select>
-                    <ChevronDown size={16} className="absolute text-brand-muted pointer-events-none" style={{ right: "1rem", top: "50%", transform: "translateY(-50%)" }} />
+                    <ChevronDown size={16} className="absolute text-brand-muted pointer-events-none" aria-hidden="true" style={{ right: "1rem", top: "50%", transform: "translateY(-50%)" }} />
                   </div>
                   {errors.enquiry && (
                     <p id="enquiry-error" className="text-red-500 text-xs font-mono" role="alert">
@@ -173,7 +173,7 @@ export default function ContactPage() {
               {contactDetails.map((detail) => (
                 <div key={detail.label} className="flex" style={{ gap: '1rem' }}>
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center">
-                    <detail.icon size={18} className="text-brand-gold" />
+                    <detail.icon size={18} className="text-brand-gold" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-mono text-xs uppercase tracking-[0.15em] text-brand-gold" style={{ marginBottom: '0.25rem' }}>
@@ -199,7 +199,7 @@ export default function ContactPage() {
               <div className="aspect-[4/3] rounded-lg overflow-hidden bg-brand-surface border border-white/5 relative" style={{ marginTop: '2rem' }}>
                 <div className="absolute inset-0 flex flex-col items-center justify-center" style={{ padding: '2rem', gap: '1rem' }}>
                   <div className="w-16 h-16 rounded-full bg-brand-gold/10 flex items-center justify-center">
-                    <MapPin size={28} className="text-brand-gold" />
+                    <MapPin size={28} className="text-brand-gold" aria-hidden="true" />
                   </div>
                   <div style={{ textAlign: 'center' }}>
                     <h3 className="font-heading text-lg uppercase tracking-wide text-brand-white" style={{ marginBottom: '0.5rem' }}>

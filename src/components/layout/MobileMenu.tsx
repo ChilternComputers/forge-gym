@@ -17,14 +17,19 @@ interface MobileMenuProps {
 export function MobileMenu({ isOpen, onClose, links }: MobileMenuProps) {
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // ESC key to close
+  // ESC key to close + inert on main
   useEffect(() => {
     if (!isOpen) return;
+    const main = document.getElementById("main-content");
+    main?.toggleAttribute("inert", true);
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      main?.removeAttribute("inert");
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, [isOpen, onClose]);
 
   const handleKeyDownTrap = useFocusTrap(menuRef);
@@ -55,7 +60,7 @@ export function MobileMenu({ isOpen, onClose, links }: MobileMenuProps) {
                 aria-label="Close menu"
                 autoFocus
               >
-                <X size={28} />
+                <X size={28} aria-hidden="true" />
               </button>
             </div>
 

@@ -1,14 +1,20 @@
 import type { Metadata } from "next";
 import { Inter, Oswald, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import dynamic from "next/dynamic";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { ChatWidget } from "@/components/ui/ChatWidget";
-import { CookieConsent } from "@/components/ui/CookieConsent";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import { ServiceWorkerRegistration } from "@/components/ui/ServiceWorkerRegistration";
 import { InstallPrompt } from "@/components/ui/InstallPrompt";
 import { organizationSchema } from "@/lib/schemas";
+
+const ChatWidget = dynamic(
+  () => import("@/components/ui/ChatWidget").then((m) => m.ChatWidget)
+);
+const CookieConsent = dynamic(
+  () => import("@/components/ui/CookieConsent").then((m) => m.CookieConsent)
+);
 
 const inter = Inter({
   subsets: ["latin"],
@@ -94,12 +100,14 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-GB"
       className={`${inter.variable} ${oswald.variable} ${jetbrainsMono.variable}`}
     >
       <head>
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="preload" as="image" href="/gym-hero-poster.webp" type="image/webp" />
+        <link rel="alternate" hrefLang="en-GB" href="https://forge-gym.pages.dev" />
+        <link rel="alternate" hrefLang="x-default" href="https://forge-gym.pages.dev" />
       </head>
       <body>
         <SmoothScroll>

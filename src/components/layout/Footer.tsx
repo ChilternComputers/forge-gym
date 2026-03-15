@@ -55,7 +55,7 @@ export function Footer() {
                 style={{ minWidth: "44px", minHeight: "44px", display: "inline-flex", alignItems: "center", justifyContent: "center" }}
                 aria-label="Instagram"
               >
-                <Instagram size={20} />
+                <Instagram size={20} aria-hidden="true" />
               </a>
               <a
                 href="https://youtube.com/forgegym"
@@ -65,7 +65,7 @@ export function Footer() {
                 style={{ minWidth: "44px", minHeight: "44px", display: "inline-flex", alignItems: "center", justifyContent: "center" }}
                 aria-label="YouTube"
               >
-                <Youtube size={20} />
+                <Youtube size={20} aria-hidden="true" />
               </a>
               <a
                 href="https://facebook.com/forgegym"
@@ -75,7 +75,7 @@ export function Footer() {
                 style={{ minWidth: "44px", minHeight: "44px", display: "inline-flex", alignItems: "center", justifyContent: "center" }}
                 aria-label="Facebook"
               >
-                <Facebook size={20} />
+                <Facebook size={20} aria-hidden="true" />
               </a>
             </div>
             <NewsletterSignup variant="inline" />

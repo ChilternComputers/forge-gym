@@ -2,8 +2,10 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useIsDesktop } from "@/lib/useIsDesktop";
 
 export function VideoSection() {
+  const isDesktop = useIsDesktop();
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -17,21 +19,30 @@ export function VideoSection() {
       ref={sectionRef}
       className="relative h-[60vh] min-h-[400px] overflow-hidden flex items-center justify-center"
     >
-      {/* Parallax background */}
+      {/* Parallax background — video on desktop, static poster on mobile */}
       <motion.div style={{ y }} className="absolute inset-[-10%] w-[120%] h-[120%]">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="none"
-          poster="/gym-hero-poster.webp"
-          className="w-full h-full object-cover"
-          aria-hidden="true"
-        >
-          <source src="/gym-hero.webm" type="video/webm" />
-          <source src="/gym-hero.mp4" type="video/mp4" />
-        </video>
+        {isDesktop ? (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="none"
+            poster="/gym-hero-poster.webp"
+            className="w-full h-full object-cover"
+            aria-hidden="true"
+          >
+            <source src="/gym-hero.webm" type="video/webm" />
+            <source src="/gym-hero.mp4" type="video/mp4" />
+          </video>
+        ) : (
+          <img
+            src="/gym-hero-poster.webp"
+            alt=""
+            className="w-full h-full object-cover"
+            aria-hidden="true"
+          />
+        )}
       </motion.div>
 
       {/* Dark overlay */}

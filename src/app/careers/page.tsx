@@ -58,7 +58,7 @@ export default function CareersPage() {
               <AnimateOnScroll key={perk.title} delay={i * 0.1}>
                 <div className="bg-brand-surface rounded-xl border border-white/5 flex" style={{ padding: "2rem", gap: "1.5rem" }}>
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-gold/10 flex items-center justify-center">
-                    <perk.icon size={22} className="text-brand-gold" />
+                    <perk.icon size={22} className="text-brand-gold" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-heading text-xl uppercase tracking-wide" style={{ marginBottom: "0.5rem" }}>
@@ -111,6 +111,7 @@ export default function CareersPage() {
                     </div>
                     <ChevronDown
                       size={18}
+                      aria-hidden="true"
                       className={cn(
                         "text-brand-gold flex-shrink-0 transition-transform duration-300",
                         openPosition === i && "rotate-180"

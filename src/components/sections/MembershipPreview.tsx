@@ -72,6 +72,7 @@ export function MembershipPreview() {
                       tier.highlighted ? "text-brand-gold" : "text-brand-muted"
                     )}
                     style={{ marginTop: "0.125rem" }}
+                    aria-hidden="true"
                   />
                   <span className="text-brand-white/90 text-sm">{feature}</span>
                 </li>

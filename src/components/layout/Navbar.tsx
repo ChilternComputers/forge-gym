@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
@@ -18,6 +19,7 @@ const navLinks: NavLink[] = [
 ];
 
 export function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -96,17 +98,27 @@ export function Navbar() {
 
             {/* Desktop nav — centred */}
             <div className="flex items-center justify-center" style={{ gap: "2.5rem" }}>
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="relative font-mono text-sm uppercase tracking-[0.15em] text-brand-white hover:text-brand-gold transition-colors duration-300 group"
-                  style={{ paddingTop: "0.5rem", paddingBottom: "0.5rem" }}
-                >
-                  {link.label}
-                  <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-brand-gold transition-all duration-300 group-hover:w-full" />
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href || pathname === `${link.href}/`;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={cn(
+                      "relative font-mono text-sm uppercase tracking-[0.15em] transition-colors duration-300 group",
+                      isActive ? "text-brand-gold" : "text-brand-white hover:text-brand-gold"
+                    )}
+                    style={{ paddingTop: "0.5rem", paddingBottom: "0.5rem" }}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {link.label}
+                    <span className={cn(
+                      "absolute bottom-0 left-0 h-0.5 bg-brand-gold transition-all duration-300",
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    )} />
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Desktop CTAs — right */}
@@ -138,7 +150,7 @@ export function Navbar() {
               aria-expanded={mobileOpen}
               aria-controls="mobile-menu"
             >
-              <Menu size={24} />
+              <Menu size={24} aria-hidden="true" />
             </button>
           </nav>
         </div>

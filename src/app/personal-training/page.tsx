@@ -72,7 +72,7 @@ export default function PersonalTrainingPage() {
               <AnimateOnScroll key={b.title} delay={i * 0.1}>
                 <div className="bg-brand-surface rounded-xl border border-white/5 flex" style={{ padding: "2rem", gap: "1.5rem" }}>
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-gold/10 flex items-center justify-center">
-                    <b.icon size={22} className="text-brand-gold" />
+                    <b.icon size={22} className="text-brand-gold" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-heading text-xl uppercase tracking-wide" style={{ marginBottom: "0.5rem" }}>
@@ -144,6 +144,7 @@ export default function PersonalTrainingPage() {
                       <li key={feature} className="flex items-start" style={{ gap: "0.75rem" }}>
                         <Check
                           size={16}
+                          aria-hidden="true"
                           className={cn(
                             "flex-shrink-0",
                             pkg.highlighted ? "text-brand-gold" : "text-brand-muted"

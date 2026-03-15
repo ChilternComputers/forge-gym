@@ -117,7 +117,7 @@ export default function TrainersPage() {
                         className="inline-flex items-center text-brand-gold hover:text-brand-gold-light font-mono text-sm transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
                         style={{ gap: "0.5rem" }}
                       >
-                        <Instagram size={18} />@{trainer.instagram}
+                        <Instagram size={18} aria-hidden="true" />@{trainer.instagram}
                       </a>
                     )}
                   </div>

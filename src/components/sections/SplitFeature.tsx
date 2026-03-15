@@ -71,7 +71,7 @@ export function SplitFeature() {
             {features.map((feature) => (
               <li key={feature.text} className="flex items-start" style={{ gap: "1rem" }}>
                 <div className="flex-shrink-0 rounded-full bg-brand-gold/10 flex items-center justify-center" style={{ width: "2.75rem", height: "2.75rem" }}>
-                  <feature.icon size={18} className="text-brand-gold" />
+                  <feature.icon size={18} className="text-brand-gold" aria-hidden="true" />
                 </div>
                 <span className="text-brand-white/90 text-sm leading-relaxed" style={{ paddingTop: "0.625rem" }}>
                   {feature.text}

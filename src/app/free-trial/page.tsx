@@ -66,7 +66,7 @@ function FreeTrialForm() {
     return (
       <div className="bg-brand-surface rounded-xl border border-white/5 flex flex-col items-center justify-center" style={{ padding: "3rem", textAlign: "center", minHeight: "400px" }}>
         <div className="w-16 h-16 rounded-full bg-brand-gold/10 flex items-center justify-center" style={{ marginBottom: "1.5rem" }}>
-          <CheckCircle size={32} className="text-brand-gold" />
+          <CheckCircle size={32} className="text-brand-gold" aria-hidden="true" />
         </div>
         <h2 className="font-heading text-3xl uppercase tracking-wide" style={{ marginBottom: "1rem" }}>
           You&apos;re Booked
@@ -140,7 +140,7 @@ function FreeTrialForm() {
             <option value="boxing">FORGE BOXING</option>
             <option value="any">No preference — surprise me</option>
           </select>
-          <ChevronDown size={16} className="absolute text-brand-muted pointer-events-none" style={{ right: "1rem", top: "50%", transform: "translateY(-50%)" }} />
+          <ChevronDown size={16} aria-hidden="true" className="absolute text-brand-muted pointer-events-none" style={{ right: "1rem", top: "50%", transform: "translateY(-50%)" }} />
         </div>
         {errors.preferredClass && (
           <p id="trial-class-error" className="text-red-500 text-xs font-mono" role="alert">
@@ -195,7 +195,7 @@ export default function FreeTrialPage() {
               {benefits.map((benefit) => (
                 <div key={benefit.title} className="flex" style={{ gap: "1rem" }}>
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center">
-                    <benefit.icon size={18} className="text-brand-gold" />
+                    <benefit.icon size={18} className="text-brand-gold" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-heading text-lg uppercase tracking-wide" style={{ marginBottom: "0.25rem" }}>

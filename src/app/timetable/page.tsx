@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { Button } from "@/components/ui/Button";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Skeleton } from "@/components/ui/Skeleton";
 import { timetable } from "@/data/timetable";
 import { useBookings } from "@/lib/useBookings";
 import { motion, AnimatePresence } from "framer-motion";
@@ -41,17 +40,19 @@ type Tab = "timetable" | "bookings";
 
 function BookButton({
   slotId,
+  className: slotName,
   isBooked,
   onToggle,
 }: {
   slotId: string;
+  className: string;
   isBooked: boolean;
   onToggle: (slotId: string) => void;
 }) {
   return (
     <button
       onClick={() => onToggle(slotId)}
-      aria-label={isBooked ? "Cancel booking" : "Book class"}
+      aria-label={isBooked ? `Cancel ${slotName} booking` : `Book ${slotName}`}
       className={cn(
         "font-mono text-xs uppercase tracking-wider rounded-full border transition-all duration-300 cursor-pointer focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none inline-flex items-center",
         isBooked
@@ -104,15 +105,16 @@ function Toast({ message }: { message: string | null }) {
 }
 
 export default function TimetablePage() {
-  const [selectedDay, setSelectedDay] = useState(
-    days[new Date().getDay() === 0 ? 6 : new Date().getDay() - 1]
-  );
-  const [hydrated, setHydrated] = useState(false);
+  const [selectedDay, setSelectedDay] = useState("Monday");
   const [activeTab, setActiveTab] = useState<Tab>("timetable");
   const [toast, setToast] = useState<string | null>(null);
   const { bookings, loaded, isBooked, toggleBooking } = useBookings();
 
-  useEffect(() => setHydrated(true), []);
+  // Set selected day to current day after mount (avoids hydration mismatch)
+  useEffect(() => {
+    const today = new Date().getDay();
+    setSelectedDay(days[today === 0 ? 6 : today - 1]);
+  }, []);
 
   const handleToggle = useCallback(
     (slotId: string) => {
@@ -140,7 +142,7 @@ export default function TimetablePage() {
     }))
     .filter((g) => g.slots.length > 0);
 
-  const ready = hydrated && loaded;
+  const ready = loaded;
 
   return (
     <>
@@ -211,19 +213,7 @@ export default function TimetablePage() {
 
             {/* Mobile: Day schedule */}
             <div className="flex flex-col" style={{ gap: "0.75rem", marginTop: "1rem" }}>
-              {!ready ? (
-                Array.from({ length: 4 }).map((_, i) => (
-                  <div key={i} className="bg-brand-surface rounded-lg border border-white/5 flex items-center" style={{ padding: "1.25rem", gap: "1rem" }}>
-                    <Skeleton style={{ width: "60px", height: "1.5rem" }} />
-                    <div className="flex-1" style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                      <Skeleton style={{ height: "1.25rem", width: "70%" }} />
-                      <Skeleton style={{ height: "0.75rem", width: "50%" }} />
-                    </div>
-                    <Skeleton style={{ height: "1.5rem", width: "4rem" }} className="rounded-full" />
-                  </div>
-                ))
-              ) : (
-              timetable
+              {timetable
                 .filter((slot) => slot.day === selectedDay)
                 .map((slot) => (
                   <AnimateOnScroll key={slot.id}>
@@ -253,32 +243,20 @@ export default function TimetablePage() {
                         </span>
                         <BookButton
                           slotId={slot.id}
+                          className={slot.className}
                           isBooked={isBooked(slot.id)}
                           onToggle={handleToggle}
                         />
                       </div>
                     </div>
                   </AnimateOnScroll>
-                ))
-              )}
+                ))}
             </div>
           </section>
 
           {/* Desktop: Full week grid */}
           <section className="responsive-px bg-brand-black hidden lg:block" style={{ paddingTop: "2.5rem", paddingBottom: "5rem" }}>
             <div className="overflow-x-auto" style={{ maxWidth: "1400px", marginLeft: "auto", marginRight: "auto" }}>
-              {!ready ? (
-                <div className="grid grid-cols-7" style={{ gap: "0.5rem" }}>
-                  {Array.from({ length: 7 }).map((_, col) => (
-                    <div key={col} style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                      <Skeleton style={{ height: "2.5rem" }} />
-                      {Array.from({ length: 4 }).map((_, row) => (
-                        <Skeleton key={row} style={{ height: "5rem" }} />
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              ) : (
               <table className="w-full border-collapse">
                 <caption className="sr-only">Weekly class timetable showing classes for each day</caption>
                 <thead>
@@ -345,6 +323,7 @@ export default function TimetablePage() {
                                   </span>
                                   <BookButton
                                     slotId={slot.id}
+                                    className={slot.className}
                                     isBooked={isBooked(slot.id)}
                                     onToggle={handleToggle}
                                   />
@@ -358,7 +337,6 @@ export default function TimetablePage() {
                   ))}
                 </tbody>
               </table>
-              )}
             </div>
           </section>
 
@@ -384,13 +362,7 @@ export default function TimetablePage() {
         /* My Bookings view */
         <section className="responsive-px bg-brand-black" style={{ paddingTop: "2.5rem", paddingBottom: "5rem" }}>
           <div style={{ maxWidth: "1400px", marginLeft: "auto", marginRight: "auto" }}>
-            {!ready ? (
-              <div className="flex flex-col" style={{ gap: "1rem" }}>
-                {Array.from({ length: 3 }).map((_, i) => (
-                  <Skeleton key={i} style={{ height: "4rem" }} />
-                ))}
-              </div>
-            ) : bookedByDay.length === 0 ? (
+            {bookedByDay.length === 0 ? (
               <div style={{ textAlign: "center", paddingTop: "4rem", paddingBottom: "4rem" }}>
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#D4A843" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "auto", marginRight: "auto", marginBottom: "1.5rem", opacity: 0.5 }}>
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />

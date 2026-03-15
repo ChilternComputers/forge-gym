@@ -1,28 +1,15 @@
-// FORGE GYM Service Worker v2
-const CACHE_NAME = "forge-v2";
+// FORGE GYM Service Worker v3
+const CACHE_NAME = "forge-v3";
 
 const APP_SHELL = [
   "/",
-  "/timetable/",
   "/classes/",
-  "/trainers/",
+  "/timetable/",
   "/membership/",
-  "/contact/",
-  "/about/",
-  "/gallery/",
   "/free-trial/",
-  "/privacy/",
-  "/blog/",
-  "/personal-training/",
-  "/transformations/",
-  "/corporate/",
-  "/careers/",
-  "/terms/",
-  "/accessibility/",
   "/site.webmanifest",
   "/favicon.svg",
   "/icons/icon-192x192.png",
-  "/icons/icon-512x512.png",
 ];
 
 // Install: pre-cache app shell

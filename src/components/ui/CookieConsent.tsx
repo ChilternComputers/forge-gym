@@ -1,33 +1,45 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
-const STORAGE_KEY = "forge-cookie-consent";
+const COOKIE_NAME = "forge-cookie-consent";
+
+function getCookie(name: string): string | null {
+  const match = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
+function setCookie(name: string, value: string, days: number) {
+  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax; Secure`;
+}
 
 export function CookieConsent() {
   const [visible, setVisible] = useState(false);
+  const bannerRef = useRef<HTMLDivElement>(null);
+  const acceptRef = useRef<HTMLButtonElement>(null);
+  const handleKeyDownTrap = useFocusTrap(bannerRef);
 
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored !== "accepted" && stored !== "rejected") {
-        const timer = setTimeout(() => setVisible(true), 1500);
-        return () => clearTimeout(timer);
-      }
-    } catch {
+    const stored = getCookie(COOKIE_NAME);
+    if (stored !== "accepted" && stored !== "rejected") {
       const timer = setTimeout(() => setVisible(true), 1500);
       return () => clearTimeout(timer);
     }
   }, []);
 
-  const handleConsent = (value: "accepted" | "rejected") => {
-    try {
-      localStorage.setItem(STORAGE_KEY, value);
-    } catch {
-      // localStorage unavailable (e.g. private browsing)
+  // Auto-focus accept button when banner appears
+  useEffect(() => {
+    if (visible) {
+      requestAnimationFrame(() => acceptRef.current?.focus());
     }
+  }, [visible]);
+
+  const handleConsent = (value: "accepted" | "rejected") => {
+    setCookie(COOKIE_NAME, value, 365);
     setVisible(false);
   };
 
@@ -41,6 +53,8 @@ export function CookieConsent() {
           transition={{ duration: 0.4, ease: "easeOut" }}
           role="alertdialog"
           aria-label="Cookie consent"
+          ref={bannerRef}
+          onKeyDown={handleKeyDownTrap}
           className="fixed bottom-0 left-0 right-0 z-50 bg-brand-surface border-t border-white/10"
         >
           <div
@@ -80,6 +94,7 @@ export function CookieConsent() {
                 Reject All
               </button>
               <button
+                ref={acceptRef}
                 onClick={() => handleConsent("accepted")}
                 className="font-mono text-xs uppercase tracking-[0.1em] bg-brand-gold text-brand-black rounded-full hover:bg-brand-gold-light transition-colors duration-300 cursor-pointer focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none"
                 style={{

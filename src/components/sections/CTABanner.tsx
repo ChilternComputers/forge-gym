@@ -2,24 +2,38 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import { useIsDesktop } from "@/lib/useIsDesktop";
 
 export function CTABanner() {
+  const isDesktop = useIsDesktop();
+
   return (
     <section className="relative overflow-hidden" style={{ paddingTop: "8rem", paddingBottom: "8rem" }}>
-      {/* Background video — barbell drop slow-mo */}
+      {/* Background — video on desktop, static poster on mobile */}
       <div className="absolute inset-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="none"
-          poster="https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?w=1920&q=45&fm=webp"
-          className="w-full h-full object-cover"
-          aria-hidden="true"
-        >
-          <source src="https://assets.mixkit.co/videos/40250/40250-720.mp4" type="video/mp4" />
-        </video>
+        {isDesktop ? (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="none"
+            poster="https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?w=1920&q=45&fm=webp"
+            className="w-full h-full object-cover"
+            aria-hidden="true"
+          >
+            <source src="/gym-hero.webm" type="video/webm" />
+            <source src="/gym-hero.mp4" type="video/mp4" />
+          </video>
+        ) : (
+          <img
+            src="https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?w=1200&q=45&fm=webp"
+            alt=""
+            loading="lazy"
+            className="w-full h-full object-cover"
+            aria-hidden="true"
+          />
+        )}
       </div>
 
       {/* Dark overlay */}

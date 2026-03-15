@@ -86,10 +86,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.category}
             </span>
             <span className="flex items-center text-brand-muted text-xs font-mono" style={{ gap: "0.375rem" }}>
-              <Clock size={14} /> {post.readTime}
+              <Clock size={14} aria-hidden="true" /> {post.readTime}
             </span>
             <span className="flex items-center text-brand-muted text-xs font-mono" style={{ gap: "0.375rem" }}>
-              <User size={14} /> {post.author}
+              <User size={14} aria-hidden="true" /> {post.author}
             </span>
             <span className="text-brand-muted text-xs font-mono">
               {new Date(post.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
@@ -128,7 +128,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               className="inline-flex items-center text-brand-gold hover:text-brand-gold-light font-mono text-sm uppercase tracking-[0.1em] transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
               style={{ gap: "0.5rem" }}
             >
-              <ArrowLeft size={16} /> Back to Blog
+              <ArrowLeft size={16} aria-hidden="true" /> Back to Blog
             </Link>
           </div>
         </div>

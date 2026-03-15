@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { SkeletonCard } from "@/components/ui/Skeleton";
 import { classes } from "@/data/classes";
 import { useFocusTrap } from "@/lib/useFocusTrap";
 import type { GymClass } from "@/types";
@@ -26,11 +25,8 @@ type Category = (typeof categories)[number]["value"];
 export default function ClassesPage() {
   const [filter, setFilter] = useState<Category>("all");
   const [selected, setSelected] = useState<GymClass | null>(null);
-  const [hydrated, setHydrated] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => setHydrated(true), []);
 
   const closeModal = useCallback(() => {
     setSelected(null);
@@ -112,13 +108,6 @@ export default function ClassesPage() {
       {/* Class grid */}
       <section className="responsive-px bg-brand-black" style={{ paddingTop: 0, paddingBottom: "6rem" }}>
         <div style={{ maxWidth: "1400px", marginLeft: "auto", marginRight: "auto" }}>
-          {!hydrated ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: "1.5rem" }}>
-              {Array.from({ length: 6 }).map((_, i) => (
-                <SkeletonCard key={i} />
-              ))}
-            </div>
-          ) : (
             <AnimatePresence mode="wait">
               <motion.div
                 key={filter}
@@ -161,13 +150,13 @@ export default function ClassesPage() {
                         </p>
                         <div className="flex items-center text-brand-muted" style={{ gap: "1rem" }}>
                           <span className="flex items-center text-xs font-mono" style={{ gap: "0.375rem" }}>
-                            <Clock size={14} /> {gymClass.duration}
+                            <Clock size={14} aria-hidden="true" /> {gymClass.duration}
                           </span>
                           <span className="flex items-center text-xs font-mono" style={{ gap: "0.375rem" }}>
-                            <Flame size={14} /> {gymClass.intensity}
+                            <Flame size={14} aria-hidden="true" /> {gymClass.intensity}
                           </span>
                           <span className="flex items-center text-xs font-mono" style={{ gap: "0.375rem" }}>
-                            <User size={14} /> {gymClass.trainer}
+                            <User size={14} aria-hidden="true" /> {gymClass.trainer}
                           </span>
                         </div>
                       </div>
@@ -176,7 +165,6 @@ export default function ClassesPage() {
                 ))}
               </motion.div>
             </AnimatePresence>
-          )}
         </div>
       </section>
 

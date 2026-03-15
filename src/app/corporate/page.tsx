@@ -70,7 +70,7 @@ export default function CorporatePage() {
             <AnimateOnScroll key={b.title} delay={i * 0.1}>
               <div className="bg-brand-surface rounded-xl border border-white/5 flex" style={{ padding: "2rem", gap: "1.5rem" }}>
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-gold/10 flex items-center justify-center">
-                  <b.icon size={22} className="text-brand-gold" />
+                  <b.icon size={22} className="text-brand-gold" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="font-heading text-xl uppercase tracking-wide" style={{ marginBottom: "0.5rem" }}>
@@ -133,6 +133,7 @@ export default function CorporatePage() {
                       <li key={feature} className="flex items-start" style={{ gap: "0.75rem" }}>
                         <Check
                           size={16}
+                          aria-hidden="true"
                           className={cn(
                             "flex-shrink-0",
                             pkg.highlighted ? "text-brand-gold" : "text-brand-muted"
@@ -178,7 +179,7 @@ export default function CorporatePage() {
             {submitted ? (
               <div className="bg-brand-surface rounded-xl border border-white/5 flex flex-col items-center justify-center" style={{ padding: "3rem", textAlign: "center", minHeight: "400px" }}>
                 <div className="w-16 h-16 rounded-full bg-brand-gold/10 flex items-center justify-center" style={{ marginBottom: "1.5rem" }}>
-                  <CheckCircle size={32} className="text-brand-gold" />
+                  <CheckCircle size={32} className="text-brand-gold" aria-hidden="true" />
                 </div>
                 <h2 className="font-heading text-3xl uppercase tracking-wide" style={{ marginBottom: "1rem" }}>
                   Enquiry Sent
@@ -248,7 +249,7 @@ export default function CorporatePage() {
                     <option value="30-50">30–50 employees</option>
                     <option value="50+">50+ employees</option>
                   </select>
-                  <ChevronDown size={16} className="absolute text-brand-muted pointer-events-none" style={{ right: "1rem", top: "50%", transform: "translateY(-50%)" }} />
+                  <ChevronDown size={16} aria-hidden="true" className="absolute text-brand-muted pointer-events-none" style={{ right: "1rem", top: "50%", transform: "translateY(-50%)" }} />
                 </div>
                 {errors.teamSize && (
                   <p id="corp-team-size-error" className="text-red-500 text-xs font-mono" role="alert">
