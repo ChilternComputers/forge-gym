@@ -75,6 +75,7 @@ export function MobileMenu({ isOpen, onClose, links }: MobileMenuProps) {
                 >
                   <Link
                     href={link.href}
+                    prefetch={false}
                     onClick={onClose}
                     className="font-heading text-4xl uppercase text-brand-white hover:text-brand-gold transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
                   >

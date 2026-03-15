@@ -91,6 +91,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    prefetch={false}
                     className="text-brand-muted hover:text-brand-white text-sm transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
                   >
                     {link.label}
@@ -110,6 +111,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    prefetch={false}
                     className="text-brand-muted hover:text-brand-white text-sm transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
                   >
                     {link.label}
@@ -173,18 +175,21 @@ export function Footer() {
           <div className="flex" style={{ gap: "1.5rem" }}>
             <Link
               href="/privacy"
+              prefetch={false}
               className="text-brand-muted hover:text-brand-white text-xs font-mono transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms"
+              prefetch={false}
               className="text-brand-muted hover:text-brand-white text-xs font-mono transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
             >
               Terms
             </Link>
             <Link
               href="/accessibility"
+              prefetch={false}
               className="text-brand-muted hover:text-brand-white text-xs font-mono transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
             >
               Accessibility

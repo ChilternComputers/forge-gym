@@ -74,6 +74,7 @@ export function CookieConsent() {
               We use cookies to improve your experience.{" "}
               <Link
                 href="/privacy"
+                prefetch={false}
                 className="text-brand-gold-light underline hover:text-brand-white focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
               >
                 Privacy Policy

@@ -104,6 +104,7 @@ export function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
+                    prefetch={false}
                     className={cn(
                       "relative font-mono text-sm uppercase tracking-[0.15em] transition-colors duration-300 group",
                       isActive ? "text-brand-gold" : "text-brand-white hover:text-brand-gold"

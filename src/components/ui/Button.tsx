@@ -45,7 +45,7 @@ export function Button({
 
   if (href) {
     return (
-      <Link href={href} className={classes} style={sizeStyles[size]}>
+      <Link href={href} prefetch={false} className={classes} style={sizeStyles[size]}>
         {children}
       </Link>
     );
