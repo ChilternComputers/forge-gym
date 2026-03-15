@@ -18,7 +18,7 @@ export function CTABanner() {
             loop
             playsInline
             preload="none"
-            poster="https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?w=1920&q=45&fm=webp"
+            poster="https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?w=1920&q=30&fm=webp"
             className="w-full h-full object-cover"
             aria-hidden="true"
           >
@@ -27,7 +27,7 @@ export function CTABanner() {
           </video>
         ) : (
           <img
-            src="https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?w=1200&q=45&fm=webp"
+            src="https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?w=1200&q=30&fm=webp"
             alt=""
             loading="lazy"
             className="w-full h-full object-cover"

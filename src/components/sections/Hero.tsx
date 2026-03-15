@@ -4,9 +4,11 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { useIsDesktop } from "@/lib/useIsDesktop";
 
 export function Hero() {
   const prefersReducedMotion = useReducedMotion();
+  const isDesktop = useIsDesktop();
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -27,23 +29,49 @@ export function Hero() {
   const subtitleOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
 
+  // Hero background — video on desktop, static poster on mobile
+  const heroBackground = isDesktop ? (
+    <video
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="metadata"
+      poster="/gym-hero-poster.webp"
+      className="w-full h-full object-cover"
+      aria-hidden="true"
+    >
+      <source src="/gym-hero.webm" type="video/webm" />
+      <source src="/gym-hero.mp4" type="video/mp4" />
+    </video>
+  ) : (
+    <img
+      src="/gym-hero-poster.webp"
+      alt=""
+      className="w-full h-full object-cover"
+      aria-hidden="true"
+    />
+  );
+
+  // CTA buttons (shared)
+  const ctaButtons = (
+    <>
+      <Button href="/free-trial" variant="primary" size="large">
+        START YOUR FREE TRIAL
+      </Button>
+      <Button href="/classes" variant="ghost" size="large">
+        VIEW CLASSES
+      </Button>
+    </>
+  );
+
   // Reduced motion — render the original static hero
   if (prefersReducedMotion) {
     return (
       <section className="relative h-svh min-h-[600px] flex items-center justify-center overflow-hidden">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/gym-hero-poster.webp"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ transform: "scale(1.1)" }}
-          aria-hidden="true"
-        >
-          <source src="https://assets.mixkit.co/videos/52094/52094-720.mp4" type="video/mp4" />
-        </video>
+        <div className="absolute inset-0" style={{ transform: "scale(1.1)" }}>
+          {heroBackground}
+        </div>
 
         <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/50 to-brand-black/30" />
 
@@ -77,12 +105,7 @@ export function Hero() {
             className="flex flex-col sm:flex-row"
             style={{ gap: "1.5rem", justifyContent: "center", alignItems: "center" }}
           >
-            <Button href="/free-trial" variant="primary" size="large">
-              START YOUR FREE TRIAL
-            </Button>
-            <Button href="/classes" variant="ghost" size="large">
-              VIEW CLASSES
-            </Button>
+            {ctaButtons}
           </div>
         </div>
 
@@ -99,24 +122,12 @@ export function Hero() {
         className="relative h-svh min-h-[600px] flex items-center justify-center overflow-hidden"
         style={{ position: "sticky", top: 0, scale: heroScale, borderRadius: heroRadius }}
       >
-        {/* Background video — scroll-driven zoom */}
+        {/* Background — scroll-driven zoom */}
         <motion.div
           className="absolute inset-0"
           style={{ scale: videoScale }}
         >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster="/gym-hero-poster.webp"
-            className="w-full h-full object-cover"
-            aria-hidden="true"
-          >
-            <source src="/gym-hero.webm" type="video/webm" />
-            <source src="/gym-hero.mp4" type="video/mp4" />
-          </video>
+          {heroBackground}
         </motion.div>
 
         {/* Dark gradient overlay */}
@@ -172,12 +183,7 @@ export function Hero() {
             className="flex flex-col sm:flex-row"
             style={{ y: subtitleY, opacity: subtitleOpacity, gap: "1.5rem", justifyContent: "center", alignItems: "center" }}
           >
-            <Button href="/free-trial" variant="primary" size="large">
-              START YOUR FREE TRIAL
-            </Button>
-            <Button href="/classes" variant="ghost" size="large">
-              VIEW CLASSES
-            </Button>
+            {ctaButtons}
           </motion.div>
         </div>
 
