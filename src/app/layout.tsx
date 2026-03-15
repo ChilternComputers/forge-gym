@@ -105,7 +105,8 @@ export default function RootLayout({
     >
       <head>
         <link rel="preconnect" href="https://images.unsplash.com" />
-        <link rel="preload" as="image" href="/gym-hero-poster.webp" type="image/webp" />
+        <link rel="preload" as="image" href="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=640&q=30&fm=webp" type="image/webp" media="(max-width: 1023px)" />
+        <link rel="preload" as="image" href="/gym-hero-poster.webp" type="image/webp" media="(min-width: 1024px)" />
         <link rel="alternate" hrefLang="en-GB" href="https://forge-gym.pages.dev" />
         <link rel="alternate" hrefLang="x-default" href="https://forge-gym.pages.dev" />
       </head>

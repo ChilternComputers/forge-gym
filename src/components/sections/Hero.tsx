@@ -46,8 +46,9 @@ export function Hero() {
     </video>
   ) : (
     <img
-      src="/gym-hero-poster.webp"
+      src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=640&q=30&fm=webp"
       alt=""
+      fetchPriority="high"
       className="w-full h-full object-cover"
       aria-hidden="true"
     />
