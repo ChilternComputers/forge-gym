@@ -176,9 +176,9 @@ export default function ContactPage() {
                     <detail.icon size={18} className="text-brand-gold" aria-hidden="true" />
                   </div>
                   <div>
-                    <h3 className="font-mono text-xs uppercase tracking-[0.15em] text-brand-gold" style={{ marginBottom: '0.25rem' }}>
+                    <h2 className="font-mono text-xs uppercase tracking-[0.15em] text-brand-gold" style={{ marginBottom: '0.25rem' }}>
                       {detail.label}
-                    </h3>
+                    </h2>
                     {detail.href ? (
                       <a
                         href={detail.href}
@@ -202,9 +202,9 @@ export default function ContactPage() {
                     <MapPin size={28} className="text-brand-gold" aria-hidden="true" />
                   </div>
                   <div style={{ textAlign: 'center' }}>
-                    <h3 className="font-heading text-lg uppercase tracking-wide text-brand-white" style={{ marginBottom: '0.5rem' }}>
+                    <h2 className="font-heading text-lg uppercase tracking-wide text-brand-white" style={{ marginBottom: '0.5rem' }}>
                       Find Us
-                    </h3>
+                    </h2>
                     <p className="text-brand-white/80 text-sm" style={{ lineHeight: '1.6' }}>
                       123 Forge Street
                       <br />

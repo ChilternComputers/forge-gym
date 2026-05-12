@@ -73,9 +73,9 @@ export default function CorporatePage() {
                   <b.icon size={22} className="text-brand-gold" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="font-heading text-xl uppercase tracking-wide" style={{ marginBottom: "0.5rem" }}>
+                  <h2 className="font-heading text-xl uppercase tracking-wide" style={{ marginBottom: "0.5rem" }}>
                     {b.title}
-                  </h3>
+                  </h2>
                   <p className="text-brand-muted text-sm leading-relaxed">
                     {b.description}
                   </p>

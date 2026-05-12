@@ -224,9 +224,9 @@ export default function TimetablePage() {
                         </span>
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-heading text-lg uppercase tracking-wide">
+                        <h2 className="font-heading text-lg uppercase tracking-wide">
                           {slot.className}
-                        </h3>
+                        </h2>
                         <p className="text-brand-muted text-xs font-mono" style={{ marginTop: "0.25rem" }}>
                           {slot.trainer} &middot; {slot.duration}
                         </p>
@@ -305,9 +305,9 @@ export default function TimetablePage() {
                                 <span className="font-mono text-xs text-brand-gold">
                                   {slot.time}
                                 </span>
-                                <h4 className="font-heading text-sm uppercase tracking-wide" style={{ marginTop: "0.25rem" }}>
+                                <h2 className="font-heading text-sm uppercase tracking-wide" style={{ marginTop: "0.25rem" }}>
                                   {slot.className}
-                                </h4>
+                                </h2>
                                 <p className="text-brand-muted text-xs font-mono" style={{ marginTop: "0.25rem" }}>
                                   {slot.trainer}
                                 </p>

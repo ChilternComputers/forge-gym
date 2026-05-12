@@ -77,7 +77,7 @@ export default function PrivacyPage() {
                 data portability. To exercise these rights, contact us at{" "}
                 <a
                   href="mailto:privacy@forgegym.co.uk"
-                  className="text-brand-gold hover:underline focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
+                  className="text-brand-gold underline hover:text-brand-gold-light focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
                 >
                   privacy@forgegym.co.uk
                 </a>
@@ -104,7 +104,7 @@ export default function PrivacyPage() {
                 For any questions about this privacy policy, please contact us at{" "}
                 <a
                   href="mailto:privacy@forgegym.co.uk"
-                  className="text-brand-gold hover:underline focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
+                  className="text-brand-gold underline hover:text-brand-gold-light focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
                 >
                   privacy@forgegym.co.uk
                 </a>{" "}

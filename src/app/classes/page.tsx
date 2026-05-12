@@ -94,7 +94,7 @@ export default function ClassesPage() {
                   "font-mono text-xs uppercase tracking-[0.15em] rounded-full border transition-all duration-300 cursor-pointer focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none",
                   filter === cat.value
                     ? "bg-brand-gold text-brand-black border-brand-gold"
-                    : "bg-transparent text-brand-muted border-brand-muted/20 hover:border-brand-gold hover:text-brand-gold"
+                    : "bg-transparent text-neutral-400 border-neutral-400/30 hover:border-brand-gold hover:text-brand-gold"
                 )}
                 style={{ paddingLeft: "1.5rem", paddingRight: "1.5rem", paddingTop: "0.75rem", paddingBottom: "0.75rem", minHeight: "44px" }}
               >
@@ -142,9 +142,9 @@ export default function ClassesPage() {
                         </div>
                       </div>
                       <div style={{ padding: "1.5rem" }}>
-                        <h3 className="font-heading text-2xl uppercase tracking-wide" style={{ marginBottom: "0.5rem" }}>
+                        <h2 className="font-heading text-2xl uppercase tracking-wide" style={{ marginBottom: "0.5rem" }}>
                           {gymClass.name}
-                        </h3>
+                        </h2>
                         <p className="text-brand-muted text-sm leading-relaxed" style={{ marginBottom: "1rem" }}>
                           {gymClass.shortDescription}
                         </p>

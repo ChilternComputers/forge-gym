@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useSearchParams } from "next/navigation";
-import Link from "next/link";
 import { Dumbbell, Users, Clock, CheckCircle, ChevronDown } from "lucide-react";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
@@ -155,12 +154,12 @@ function FreeTrialForm() {
 
       <p className="text-brand-muted text-xs" style={{ textAlign: "center" }}>
         By submitting, you agree to our{" "}
-        <Link
-          href="/privacy"
-          className="text-brand-gold hover:underline focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
+        <a
+          href="/privacy/"
+          className="text-brand-gold underline hover:text-brand-gold-light focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
         >
           Privacy Policy
-        </Link>
+        </a>
         .
       </p>
     </form>
@@ -198,9 +197,9 @@ export default function FreeTrialPage() {
                     <benefit.icon size={18} className="text-brand-gold" aria-hidden="true" />
                   </div>
                   <div>
-                    <h3 className="font-heading text-lg uppercase tracking-wide" style={{ marginBottom: "0.25rem" }}>
+                    <h2 className="font-heading text-lg uppercase tracking-wide" style={{ marginBottom: "0.25rem" }}>
                       {benefit.title}
-                    </h3>
+                    </h2>
                     <p className="text-brand-muted text-sm">
                       {benefit.description}
                     </p>

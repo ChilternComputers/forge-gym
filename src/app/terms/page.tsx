@@ -80,7 +80,7 @@ export default function TermsPage() {
                 days&apos; written notice. Cancellations can be submitted via email to{" "}
                 <a
                   href="mailto:hello@forgegym.co.uk"
-                  className="text-brand-gold hover:underline focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
+                  className="text-brand-gold underline hover:text-brand-gold-light focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
                 >
                   hello@forgegym.co.uk
                 </a>{" "}
@@ -124,7 +124,7 @@ export default function TermsPage() {
                 For any questions about these terms, please contact us at{" "}
                 <a
                   href="mailto:hello@forgegym.co.uk"
-                  className="text-brand-gold hover:underline focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
+                  className="text-brand-gold underline hover:text-brand-gold-light focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:outline-none rounded"
                 >
                   hello@forgegym.co.uk
                 </a>{" "}
