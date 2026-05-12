@@ -104,7 +104,6 @@ export default function RootLayout({
       className={`${inter.variable} ${oswald.variable} ${jetbrainsMono.variable}`}
     >
       <head>
-        <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="preload" as="image" href="/gym-hero-mobile.webp" type="image/webp" />
         <link rel="alternate" hrefLang="en-GB" href="https://forge-gym.pages.dev" />
         <link rel="alternate" hrefLang="x-default" href="https://forge-gym.pages.dev" />

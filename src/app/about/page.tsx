@@ -58,7 +58,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[350px] flex items-end overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1577221084712-45b0445d2b00?w=1920&q=45&fm=webp"
+          src="/images/unsplash/1577221084712-45b0445d2b00.webp"
           alt="FORGE GYM interior"
           fill
           priority
@@ -83,7 +83,7 @@ export default function AboutPage() {
           <AnimateOnScroll variant="slideLeft">
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=900&q=80&fm=webp"
+                src="/images/unsplash/1584735935682-2f2b69dff9d2.webp"
                 alt="Inside FORGE GYM"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

@@ -51,7 +51,7 @@ export function Testimonials() {
             loop
             playsInline
             preload="none"
-            poster="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?w=1920&q=30&fm=webp"
+            poster="/images/unsplash/1583454155184-870a1f63aebc.webp"
             className="w-full h-full object-cover"
             aria-hidden="true"
           >
@@ -60,7 +60,7 @@ export function Testimonials() {
           </video>
         ) : (
           <img
-            src="https://images.unsplash.com/photo-1583454155184-870a1f63aebc?w=1200&q=30&fm=webp"
+            src="/images/unsplash/1583454155184-870a1f63aebc.webp"
             alt=""
             loading="lazy"
             className="w-full h-full object-cover"

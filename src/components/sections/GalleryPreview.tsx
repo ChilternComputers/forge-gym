@@ -13,27 +13,27 @@ const itemVariants = createScaleUpVariants();
 
 const galleryImages = [
   {
-    src: "https://images.unsplash.com/photo-1558611848-73f7eb4001a1?w=600&q=45&fm=webp",
+    src: "/images/unsplash/1558611848-73f7eb4001a1.webp",
     alt: "Dumbbell rack in the free weights area",
   },
   {
-    src: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=600&q=45&fm=webp",
+    src: "/images/unsplash/1605296867304-46d5465a13f1.webp",
     alt: "Gym floor with moody lighting",
   },
   {
-    src: "https://images.unsplash.com/photo-1593079831268-3381b0db4a77?w=600&q=45&fm=webp",
+    src: "/images/unsplash/1593079831268-3381b0db4a77.webp",
     alt: "Functional training zone",
   },
   {
-    src: "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=600&q=45&fm=webp",
+    src: "/images/unsplash/1576678927484-cc907957088c.webp",
     alt: "Member training with ropes",
   },
   {
-    src: "https://images.unsplash.com/photo-1623874514711-0f321325f318?w=600&q=45&fm=webp",
+    src: "/images/unsplash/1623874514711-0f321325f318.webp",
     alt: "Kettlebell training station",
   },
   {
-    src: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&q=45&fm=webp",
+    src: "/images/unsplash/1517838277536-f5f99be501cd.webp",
     alt: "Athlete mid-workout",
   },
 ];

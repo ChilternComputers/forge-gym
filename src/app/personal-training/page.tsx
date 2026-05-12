@@ -34,7 +34,7 @@ export default function PersonalTrainingPage() {
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[350px] flex items-end overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1521804906057-1df8fdb718b7?w=1920&q=45&fm=webp"
+          src="/images/unsplash/1521804906057-1df8fdb718b7.webp"
           alt="Personal training session at FORGE GYM"
           fill
           priority

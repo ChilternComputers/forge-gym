@@ -10,7 +10,7 @@ export const classes: GymClass[] = [
     shortDescription: "Build raw power and lean muscle with progressive overload.",
     duration: "55 min",
     intensity: "High",
-    image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&q=80&fm=webp",
+    image: "/images/unsplash/1581009146145-b5ef050c2e1e.webp",
     trainer: "Marcus Cole",
   },
   {
@@ -22,7 +22,7 @@ export const classes: GymClass[] = [
     shortDescription: "Push your limits with explosive interval training.",
     duration: "45 min",
     intensity: "Intense",
-    image: "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=800&q=80&fm=webp",
+    image: "/images/unsplash/1517963879433-6ad2b056d712.webp",
     trainer: "Jade Rivera",
   },
   {
@@ -34,7 +34,7 @@ export const classes: GymClass[] = [
     shortDescription: "Sculpt and strengthen with precision reformer pilates.",
     duration: "50 min",
     intensity: "Moderate",
-    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80&fm=webp",
+    image: "/images/unsplash/1518611012118-696072aa579a.webp",
     trainer: "Sophie Chen",
   },
   {
@@ -46,7 +46,7 @@ export const classes: GymClass[] = [
     shortDescription: "Develop speed, power, and mental toughness.",
     duration: "50 min",
     intensity: "Intense",
-    image: "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=800&q=80&fm=webp",
+    image: "/images/unsplash/1549719386-74dfcbf7dbed.webp",
     trainer: "Kai Thompson",
   },
   {
@@ -58,7 +58,7 @@ export const classes: GymClass[] = [
     shortDescription: "Build a bulletproof core with targeted training.",
     duration: "30 min",
     intensity: "Moderate",
-    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80&fm=webp",
+    image: "/images/unsplash/1571019614242-c5c5dee9f50b.webp",
     trainer: "Marcus Cole",
   },
   {
@@ -70,7 +70,7 @@ export const classes: GymClass[] = [
     shortDescription: "Metabolic conditioning for maximum calorie burn.",
     duration: "40 min",
     intensity: "Intense",
-    image: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=800&q=80&fm=webp",
+    image: "/images/unsplash/1574680096145-d05b474e2155.webp",
     trainer: "Jade Rivera",
   },
 ];
